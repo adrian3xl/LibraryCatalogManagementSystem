@@ -12,7 +12,7 @@ import java.sql.ResultSet;
  *
  * @author Adrian
  */
-public interface ICatalogrecordServiceJDBC {
+public interface ICatalogrecordServiceJDBC extends IService {
     
 public final String NAME="ICatalogrecordServiceJDBC";
     
