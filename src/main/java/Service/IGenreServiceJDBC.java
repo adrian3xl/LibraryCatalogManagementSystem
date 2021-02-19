@@ -16,11 +16,11 @@ public interface IGenreServiceJDBC extends IService {
     
    public final String NAME="IGenreServiceJDBC";
     
-    public void addGenreJDBC(Genre genre) throws Exception ; //method for adding book
+    public void addGenreJDBC(Genre genre) throws Exception ; //method for adding genre
     
-    public void updateGenreJDBC(Genre genre) throws Exception ; //method for updating a book
+    public void updateGenreJDBC(Genre genre) throws Exception ; //method for updating a genre
     
-    public Genre getGenreJDBC(int id) throws Exception ; //method to select book
+    public Genre getGenreJDBC(int id) throws Exception ; //method to select genre
     
     public ResultSet getAllGenreJDBC() throws Exception;
     

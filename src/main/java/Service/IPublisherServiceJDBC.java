@@ -18,11 +18,11 @@ public interface IPublisherServiceJDBC extends IService {
     
     public final String NAME="IPublisherServiceJDBC";
     
-    public void addPublisherJDBC(Publisher publisher) throws Exception ; //method for adding book
+    public void addPublisherJDBC(Publisher publisher) throws Exception ; //method for adding Publisher
     
-    public void updatePublisherJDBC(Publisher publisher) throws Exception ; //method for updating a book
+    public void updatePublisherJDBC(Publisher publisher) throws Exception ; //method for updating a Publisher
     
-    public Publisher getPublisherJDBC(int id) throws Exception ; //method to select book
+    public Publisher getPublisherJDBC(int id) throws Exception ; //method to select Publisher
     
     public ResultSet getAllPublishersJDBC() throws Exception;
     

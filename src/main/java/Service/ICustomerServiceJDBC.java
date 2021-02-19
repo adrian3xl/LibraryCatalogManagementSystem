@@ -5,10 +5,25 @@
  */
 package Service;
 
+import Domain.Customer;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Adrian
  */
-public interface ICustomerServiceJDBC {
+public interface ICustomerServiceJDBC extends IService {
+    
+ public final String NAME="ICustomerServiceJDBC";
+    
+    public void addCustomerJDBC(Customer customer) throws Exception ; //method for adding Customer
+    
+    public void updateCustomerJDBC(Customer customer) throws Exception ; //method for updating a Customer
+    
+    public Customer getCustomerJDBC(int id) throws Exception ; //method to select Customer
+    
+    public ResultSet getAllCustomerJDBC() throws Exception;
+    
+    public void deleteCustomerJDBC(int id) throws Exception; 
     
 }

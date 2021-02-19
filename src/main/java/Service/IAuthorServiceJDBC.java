@@ -16,11 +16,11 @@ public interface IAuthorServiceJDBC extends IService {
     
     public final String NAME="IAuthorServiceJDBC";
     
-    public void addAuthorJDBC(Author author) throws Exception ; //method for adding book
+    public void addAuthorJDBC(Author author) throws Exception ; //method for adding author
     
-    public void updateAuthorJDBC(Author author) throws Exception ; //method for updating a book
+    public void updateAuthorJDBC(Author author) throws Exception ; //method for updating a author
     
-    public Author getAuthorJDBC(int id) throws Exception ; //method to select book
+    public Author getAuthorJDBC(int id) throws Exception ; //method to select author
     
     public ResultSet getAllAuthorsJDBC() throws Exception;
     
