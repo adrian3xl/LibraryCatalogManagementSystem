@@ -22,7 +22,7 @@ public class AuthorJDBCManager {
     
    
     
-    public void addAuthor(Author anAuthor)
+    public void addAuthorJDBC(Author anAuthor)
     {
         try {
             System.out.println("In Business Layer addAuthor(Author author) method");
@@ -38,7 +38,7 @@ public class AuthorJDBCManager {
            System.out.println(ex.getMessage()); 
         }
     }
-    public Author getAuthor(int authorId)
+    public Author getAuthorJDBC(int authorId)
     {
         Author anAuthor=new Author();
         try {
@@ -57,7 +57,7 @@ public class AuthorJDBCManager {
         return anAuthor;
     }
     
-    public void updateAuthor(Author anAuthor)
+    public void updateAuthorJDBC(Author anAuthor)
     {
         try {
             System.out.println("In Business Layer  updateAuthorJDBC(Author anAuthor) method");
@@ -74,7 +74,7 @@ public class AuthorJDBCManager {
         }
     }
     
-    public ResultSet getAllAuthors()
+    public ResultSet getAllAuthorsJDBC()
     {
         ResultSet rs=null;
         List<Author> authorsList = new ArrayList<>();
@@ -94,7 +94,7 @@ public class AuthorJDBCManager {
     }
     
     
-    public void deleteAuthor(int authorId)
+    public void deleteAuthorJDBC(int authorId)
     {
         try {
             System.out.println("In Business Layer deleteAuhor JDBC method");

@@ -41,7 +41,7 @@ public class Catalogrecord {
     private String catalogcode;	
 
 
-    private Catalogrecord(){	
+    public Catalogrecord(){	
     }	
 
 

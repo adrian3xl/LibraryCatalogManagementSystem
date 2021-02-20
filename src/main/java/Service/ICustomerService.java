@@ -25,5 +25,7 @@ public final String NAME="ICustomerService";
     public ResultSet getAllCustomer () throws Exception;
     
     public void deleteCustomer (int id) throws Exception; 
+
+    public void deleteCustomer(Class<?> Customer, int customerId);
     
 }

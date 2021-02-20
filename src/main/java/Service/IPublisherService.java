@@ -25,4 +25,8 @@ public interface IPublisherService extends IService {
     public ResultSet getAllPublishers () throws Exception;
     
     public void deletePublisher (int id) throws Exception;
+
+    public void deletePublisher(Class<?> Publisher, int publisherId);
+
+     
 }

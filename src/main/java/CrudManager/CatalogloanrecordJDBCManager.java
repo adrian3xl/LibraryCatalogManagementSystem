@@ -4,11 +4,113 @@
  * and open the template in the editor.
  */
 package CrudManager;
-
+import Domain.Catalogloanrecord;
+import java.util.ArrayList;
+import java.util.List;
+import Service.Factory;
+import Service.ICatalogloanrecordService;
+import Service.Exceptions.ServiceLoadException;
+import Service.ICatalogloanrecordServiceJDBC;
+import java.sql.ResultSet;
 /**
  *
  * @author Adrian
  */
 public class CatalogloanrecordJDBCManager {
     
+public void addCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
+    {
+        try {
+            System.out.println("In Business Layer addCatalogloanrecord(Catalogloanrecord catalogloanrecord) method");
+            Factory factory = new Factory();            
+            ICatalogloanrecordServiceJDBC iCatalogloanrecordMgrJDBC = (ICatalogloanrecordServiceJDBC) factory.getTheService(ICatalogloanrecordServiceJDBC.NAME);
+            iCatalogloanrecordMgrJDBC.addCatalogloanrecordJDBC(anCatalogloanrecord);
+            
+        } catch (ServiceLoadException ex) {
+         System.out.println(ex.getMessage());
+           
+        } catch (Exception ex) {
+            
+           System.out.println(ex.getMessage()); 
+        }
+    }
+    public Catalogloanrecord getCatalogloanrecordJDBC(int catalogloanrecordId)
+    {
+        Catalogloanrecord anCatalogloanrecord=new Catalogloanrecord();
+        try {
+            System.out.println("In Business Layer getCatalogloanrecordJDBC(int catalogloanrecordId) method");
+            Factory factory = new Factory();           
+            ICatalogloanrecordServiceJDBC iCatalogloanrecordMgrJDBC = (ICatalogloanrecordServiceJDBC) factory.getTheService(ICatalogloanrecordServiceJDBC.NAME);
+            anCatalogloanrecord=iCatalogloanrecordMgrJDBC.getCatalogloanrecordJDBC(catalogloanrecordId);
+            
+        } catch (ServiceLoadException ex) {
+          System.out.println(ex.getMessage());
+            
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            
+        }
+        return anCatalogloanrecord;
+    }
+    
+    public void updateCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
+    {
+        try {
+            System.out.println("In Business Layer  updateCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord) method");
+            Factory factory = new Factory();            
+            ICatalogloanrecordServiceJDBC iCatalogloanrecordMgrJDBC = (ICatalogloanrecordServiceJDBC) factory.getTheService(ICatalogloanrecordServiceJDBC.NAME);
+            iCatalogloanrecordMgrJDBC.updateCatalogloanrecordJDBC(anCatalogloanrecord);
+            
+        } catch (ServiceLoadException ex) {
+          
+           System.out.println(ex.getMessage()); 
+        } catch (Exception ex) {
+            
+           System.out.println(ex.getMessage()); 
+        }
+    }
+    
+    public ResultSet getAllCatalogloanrecordJDBC()
+    {
+        ResultSet rs=null;
+        List<Catalogloanrecord> CatalogloanrecordList = new ArrayList<>();
+        try {
+            System.out.println("In Business Layer getAllCatalogloanrecord JDBC method");
+            Factory factory = new Factory();
+            ICatalogloanrecordServiceJDBC iCatalogloanrecordMgrJDBC = (ICatalogloanrecordServiceJDBC) factory.getTheService(ICatalogloanrecordServiceJDBC.NAME);
+            rs=iCatalogloanrecordMgrJDBC.getAllCatalogloanrecordJDBC();
+            
+        } catch (ServiceLoadException ex) {
+          System.out.println(ex.getMessage());
+            
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());            
+        }
+        return rs;
+    }
+    
+    
+    public void deleteCatalogloanrecordJDBC(int catalogloanrecordId)
+    {
+        try {
+            System.out.println("In Business Layer deleteCatalogloanrecord JDBC method");
+            Factory factory = new Factory();
+            ICatalogloanrecordServiceJDBC iCatalogloanrecordMgrJDBC = (ICatalogloanrecordServiceJDBC) factory.getTheService(ICatalogloanrecordServiceJDBC.NAME);
+            iCatalogloanrecordMgrJDBC.deleteCatalogloanrecordJDBC(catalogloanrecordId);
+            
+        } catch (ServiceLoadException ex) {
+          System.out.println(ex.getMessage());
+            
+        } catch (Exception ex) {
+            
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public CatalogloanrecordJDBCManager() {
+    }
+    
+    
+    
 }
+
