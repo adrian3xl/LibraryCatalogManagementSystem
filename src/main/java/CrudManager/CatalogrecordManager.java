@@ -78,7 +78,7 @@ public void addCatalogrecord(Catalogrecord anCatalogrecord)
             System.out.println("In Business Layer getAllCatalogrecord  method");
             Factory factory = new Factory();
             ICatalogrecordService iCatalogrecordMgr  = (ICatalogrecordService ) factory.getTheService(ICatalogrecordService .NAME);
-            rs=iCatalogrecordMgr.getAllCatalogrecord();
+            rs=(ResultSet) iCatalogrecordMgr.getAllCatalogrecord();
             
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());
@@ -90,13 +90,13 @@ public void addCatalogrecord(Catalogrecord anCatalogrecord)
     }
     
     
-    public void deleteCatalogrecord(int catalogrecordId)
+    public void deleteCatalogrecord(Class<?> Catalogrecord, int catalogrecordId)
     {
         try {
             System.out.println("In Business Layer deleteCatalogrecord method");
             Factory factory = new Factory();
             ICatalogrecordService  iCatalogrecordMgr  = (ICatalogrecordService ) factory.getTheService(ICatalogrecordService .NAME);
-            iCatalogrecordMgr .deleteCatalogrecord (catalogrecordId);
+            iCatalogrecordMgr .deleteCatalogrecord (Catalogrecord, catalogrecordId);
             
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());

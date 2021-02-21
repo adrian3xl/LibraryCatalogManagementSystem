@@ -74,6 +74,7 @@ public class AuthorImplement extends HibernateMainConfig implements IAuthorServi
                      }
     }
     
+    @Override
     public void deleteAuthor(Class<?> Author, int authorId) throws Exception
     {
         

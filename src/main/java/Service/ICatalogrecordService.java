@@ -7,6 +7,7 @@ package Service;
 
 import Domain.Catalogrecord;
 import java.sql.ResultSet;
+import java.util.List;
 
 /**
  *
@@ -22,8 +23,9 @@ public final String NAME="ICatalogrecordService";
     
     public Catalogrecord getCatalogrecord (int id) throws Exception ; //method to select Catalogrecord
     
-    public ResultSet getAllCatalogrecord () throws Exception;
+    public List<Catalogrecord> getAllCatalogrecord () throws Exception;
     
-    public void deleteCatalogrecord (int id) throws Exception; 
+    public void deleteCatalogrecord (Class<?> Catalogrecord, int id) throws Exception; 
+
     
 }

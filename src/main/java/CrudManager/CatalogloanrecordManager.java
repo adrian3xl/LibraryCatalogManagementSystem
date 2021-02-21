@@ -77,7 +77,7 @@ public void addCatalogloanrecord(Catalogloanrecord anCatalogloanrecord)
             System.out.println("In Business Layer getAllCatalogloanrecord  method");
             Factory factory = new Factory();
             ICatalogloanrecordService iCatalogloanrecordMgr  = (ICatalogloanrecordService ) factory.getTheService(ICatalogloanrecordService .NAME);
-            rs=iCatalogloanrecordMgr.getAllCatalogloanrecord();
+            rs=(ResultSet) iCatalogloanrecordMgr.getAllCatalogloanrecord();
             
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());
