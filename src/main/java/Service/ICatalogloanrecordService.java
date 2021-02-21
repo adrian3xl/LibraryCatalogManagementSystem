@@ -7,6 +7,7 @@ package Service;
 
 import Domain.Catalogloanrecord;
 import java.sql.ResultSet;
+import java.util.List;
 
 /**
  *
@@ -22,7 +23,7 @@ public final String NAME="ICatalogloanrecordService";
     
     public Catalogloanrecord getCatalogloanrecord (int id) throws Exception ; //method to select Catalogloanrecord
     
-    public ResultSet getAllCatalogloanrecord () throws Exception;
+    public List<Catalogloanrecord> getAllCatalogloanrecord () throws Exception;
     
     public void deleteCatalogloanrecord (int id) throws Exception; 
     
