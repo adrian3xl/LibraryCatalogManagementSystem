@@ -90,13 +90,13 @@ public void addDocumenttype (Documenttype anDocumenttype)
     }
     
     
-    public void deleteDocumenttype (int documenttypeId)
+    public void deleteDocumenttype(Class<?> Documenttype, int documenttypeId)
     {
         try {
             System.out.println("In Business Layer deleteAuhor   method");
             Factory factory = new Factory();
             IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
-            iDocumenttypeMgr .deleteDocumenttype (documenttypeId);
+            iDocumenttypeMgr .deleteDocumenttype (Documenttype,documenttypeId);
             
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());

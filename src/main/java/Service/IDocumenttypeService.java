@@ -24,6 +24,6 @@ public final String NAME="IDocumenttypeService";
     
     public ResultSet getAllDocumenttype () throws Exception;
     
-    public void deleteDocumenttype (int id) throws Exception; 
+    public void deleteDocumenttype (Class<?> Documenttype, int documenttypeId) throws Exception; 
     
 }
