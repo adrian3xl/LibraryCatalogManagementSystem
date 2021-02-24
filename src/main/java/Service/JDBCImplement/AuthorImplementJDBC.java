@@ -26,7 +26,7 @@ public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAutho
  @Override 
     public void addAuthorJDBC(Author author) throws Exception {
         
-        String insertAuthor = "INSERT INTO authors(id, authorcode, firstname, lastname) "
+        String insertAuthor = "INSERT INTO author(id, authorcode, firstname, lastname) "
                 + "values('" + author.getId() + 
                 "', '" + author.getAuthorCode()+
                 "', '" + author.getFname() + 
