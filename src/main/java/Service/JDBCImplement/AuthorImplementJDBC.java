@@ -9,8 +9,6 @@ import Service.HibernateImplement.*;
 import Domain.Author;
 import java.util.ArrayList;
 import java.util.List;
-import Service.IAuthorService;
-import Service.IAuthorService;
 import Service.IAuthorServiceJDBC;
 import java.sql.ResultSet;
 import java.sql.Statement;
