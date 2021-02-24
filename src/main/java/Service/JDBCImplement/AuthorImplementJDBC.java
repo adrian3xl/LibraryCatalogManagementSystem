@@ -26,7 +26,7 @@ public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAutho
  @Override 
     public void addAuthorJDBC(Author author) throws Exception {
         
-        String insertAuthor = "INSERT INTO authors(ID, Title, FirstName, LastName, School) "
+        String insertAuthor = "INSERT INTO authors(id, authorcode, firstname, lastname) "
                 + "values('" + author.getId() + 
                 "', '" + author.getAuthorCode()+
                 "', '" + author.getFname() + 
@@ -41,8 +41,7 @@ public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAutho
     @Override
     public void updateAuthorJDBC(Author author) throws Exception {
            
-        String updateAuthor = "UPDATE authors SET Title = '" +  
-                "', authorcode = '" + author.getAuthorCode()+ 
+        String updateAuthor = "UPDATE author SET authorcode = '" + author.getAuthorCode()+ 
                 "', firstname = '" + author.getFname() + 
                 "', lastname = '" + author.getFname() + 
                 
@@ -60,7 +59,7 @@ public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAutho
 
     @Override
     public Author getAuthorJDBC(int authorID) throws Exception {
-        String selectAuthor = "Select * From authors Where ID = " + authorID;
+        String selectAuthor = "Select * From author Where id = " + authorID;
         statement=this.getConnection().createStatement();
         
         ResultSet rs=statement.executeQuery(selectAuthor);
@@ -90,7 +89,7 @@ public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAutho
     @Override
     public void deleteAuthorJDBC(int authorId) throws Exception {
         statement=this.getConnection().createStatement();
-        statement.execute("Delete From author Where ID = " + authorId);
+        statement.execute("Delete From author Where id = " + authorId);
     }
 
    
