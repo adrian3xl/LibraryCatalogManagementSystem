@@ -24,5 +24,7 @@ public final String NAME="IEmployeeService ";
     
     public ResultSet getAllEmployee () throws Exception;
     
-    public void deleteEmployee (int id) throws Exception;
+    public void deleteEmployee (Class<?> Employee, int employeeId) throws Exception;
+
+    //public void deleteEmployee(int employeeId);
 }

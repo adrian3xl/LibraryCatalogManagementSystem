@@ -24,6 +24,6 @@ public final String NAME="IGenreService";
     
     public ResultSet getAllGenre () throws Exception;
     
-    public void deleteGenre (int id) throws Exception; 
+    public void deleteGenre (Class<?> Genre , int id) throws Exception; 
     
 }

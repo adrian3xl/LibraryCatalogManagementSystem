@@ -90,13 +90,13 @@ public void addGenre(Genre anGenre)
     }
     
     
-    public void deleteGenre (int genreId)
+    public void deleteGenre (Class <?> Genre,int genreId)
     {
         try {
-            System.out.println("In Business Layer deleteAuhor   method");
+            System.out.println("In Business Layer deleteGenre method");
             Factory factory = new Factory();
             IGenreService  iGenreMgr  = (IGenreService ) factory.getTheService(IGenreService .NAME);
-            iGenreMgr .deleteGenre (genreId);
+            iGenreMgr .deleteGenre (Genre, genreId);
             
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());

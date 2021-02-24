@@ -90,13 +90,13 @@ public void addEmployee (Employee anEmployee)
     }
     
     
-    public void deleteEmployee (int employeeId)
+    public void deleteEmployee (Class<?> Employee, int employeeId)
     {
         try {
-            System.out.println("In Business Layer deleteAuhor   method");
+            System.out.println("In Business Layer deleteEmployee  method");
             Factory factory = new Factory();
             IEmployeeService  iEmployeeMgr  = (IEmployeeService ) factory.getTheService(IEmployeeService .NAME);
-            iEmployeeMgr .deleteEmployee (employeeId);
+            iEmployeeMgr .deleteEmployee (Employee,employeeId);
             
         } catch (ServiceLoadException ex) {
           System.out.println(ex.getMessage());
