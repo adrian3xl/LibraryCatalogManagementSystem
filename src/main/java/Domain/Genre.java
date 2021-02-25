@@ -18,11 +18,13 @@ import javax.persistence.Id;
 
 @Entity	
 @Table(name="genre")	
+
 public class Genre {	
 
      @Id	
     @Column(name="name")	
     private String name;	
+    private int id;
 
     public Genre( String name) {	
         this.name=name;	
@@ -33,7 +35,9 @@ public class Genre {
 
     public Genre(){	
     }	
-
+ public int getId() {
+        return id;
+    }
     public void setName(String name) {	
         this.name = name;	
     }	
@@ -42,6 +46,10 @@ public class Genre {
         return name;	
     }	
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
    @Override	
     public String toString() {	
         return "Genre{" + "name=" + name + '}';	
