@@ -34,23 +34,56 @@ public class PublisherImplementJDBC extends JDBCMainConfiguration implements IPu
 
 
     @Override
-    public void updatePublisherJDBC(Publisher publisher) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void updatePublisherJDBC(Publisher publisher) throws Exception  
+    {  String updatePublisher = "UPDATE publisher SET publishercode = '" + publisher.getPublisherCode()+ 
+                "', firstname = '" + publisher.getFname() + 
+                "', lastname = '" + publisher.getFname() + 
+                
+                "' WHERE ID = '"+ publisher.getId() +"'";        
+        
+        statement = this.getConnection().createStatement();
+        
+        int rowsUpdated = statement.executeUpdate(updatePublisher);
+        if (rowsUpdated > 0) {
+            System.out.println("Update Successful");
+        }
+        
+        this.getConnection().close();  
     }
 
     @Override
-    public Publisher getPublisherJDBC(int id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Publisher getPublisherJDBC(int publisherID) throws Exception {
+        String selectPublisher = "Select * From publisher Where id = " + publisherID;
+        statement=this.getConnection().createStatement();
+        
+        ResultSet rs=statement.executeQuery(selectPublisher);
+        
+        Publisher publisher =new Publisher();
+        publisher.setId(publisherID);
+        publisher.setPublisherCode(rs.getString("publishercode"));
+        publisher.setFname(rs.getString("firstname"));
+        publisher.setLname(rs.getString("lastname"));
+             
+        
+        return publisher ;
+        
     }
 
     @Override
     public ResultSet getAllPublishersJDBC() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     ResultSet rs=null;
+        
+        String SelectAll="Select * From publisher";
+        statement=this.getConnection().createStatement();
+        rs=statement.executeQuery(SelectAll);
+        
+        return rs;
     }
 
     @Override
-    public void deletePublisherJDBC(int id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deletePublisherJDBC(int publisherId) throws Exception {
+     statement=this.getConnection().createStatement();
+        statement.execute("Delete From publisher Where id = " + publisherId);
     }
-    
+
 }
