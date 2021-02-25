@@ -8,6 +8,7 @@ package Service.JDBCImplement;
 import Domain.Publisher;
 import Service.IPublisherServiceJDBC;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
@@ -15,10 +16,22 @@ import java.sql.ResultSet;
  */
 public class PublisherImplementJDBC extends JDBCMainConfiguration implements IPublisherServiceJDBC {
 
+    Statement statement;
+    
     @Override
     public void addPublisherJDBC(Publisher publisher) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          String insertAuthor = "INSERT INTO publisher(id, publishercode, firstname, lastname) "
+                + "values('" + publisher.getId() + 
+                "', '" + publisher.getPublisherCode()+
+                "', '" + publisher.getFname() + 
+                "', '" + publisher.getLname() + "')";    
+        
+        statement=this.getConnection().createStatement();        
+        statement.execute(insertAuthor);      
+        
+        this.getConnection().close();       
     }
+
 
     @Override
     public void updatePublisherJDBC(Publisher publisher) throws Exception {

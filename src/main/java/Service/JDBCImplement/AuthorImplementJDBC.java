@@ -15,7 +15,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author KRichards
+ * @author Abailey
  */
 public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAuthorServiceJDBC {
     

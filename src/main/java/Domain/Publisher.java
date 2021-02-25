@@ -31,12 +31,12 @@ public class Publisher extends Person{
        
     }
 
-    public void setAuthorCode(String publishercode) {
+    public void setPublisherCode(String publishercode) {
         this.publishercode = publishercode;
     }
 
 
-    public String getAuthorCode() {
+    public String getPublisherCode() {
         return publishercode;
     }
 
