@@ -136,7 +136,7 @@ public class AuthorImplement extends HibernateMainConfig implements IAuthorServi
          List<Author> authorList =  new ArrayList<>();
          try{
              transact=session1.beginTransaction();
-             authorList = (List<Author>) session1.createQuery("from Author").list();
+             authorList = (List<Author>) session1.createQuery("from author").list();
              transact.commit();
              }
          catch(HibernateException hex){

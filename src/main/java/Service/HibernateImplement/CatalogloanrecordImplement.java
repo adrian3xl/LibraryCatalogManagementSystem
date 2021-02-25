@@ -133,7 +133,7 @@ public class CatalogloanrecordImplement extends HibernateMainConfig implements I
          List<Catalogloanrecord> catalogloanrecordList =  new ArrayList<>();
          try{
              transact=session1.beginTransaction();
-             catalogloanrecordList = (List<Catalogloanrecord>) session1.createQuery("from Catalogloanrecord").list();
+             catalogloanrecordList = (List<Catalogloanrecord>) session1.createQuery("from catalogloanrecord").list();
              transact.commit();
              }
          catch(HibernateException hex){

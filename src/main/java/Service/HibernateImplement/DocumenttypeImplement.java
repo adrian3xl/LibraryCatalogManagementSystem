@@ -106,7 +106,7 @@ public class DocumenttypeImplement extends HibernateMainConfig implements IDocum
          List<Documenttype> documenttypeList =  new ArrayList<>();
          try{
              transact=session1.beginTransaction();
-             documenttypeList = (List<Documenttype>) session1.createQuery("from Documenttype").list();
+             documenttypeList = (List<Documenttype>) session1.createQuery("from documenttype").list();
              transact.commit();
              }
          catch(HibernateException hex){

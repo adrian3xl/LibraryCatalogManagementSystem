@@ -105,7 +105,7 @@ public class CatalogrecordImplement extends HibernateMainConfig implements ICata
          List<Catalogrecord> catalogrecordList =  new ArrayList<>();
          try{
              transact=session1.beginTransaction();
-             catalogrecordList = (List<Catalogrecord>) session1.createQuery("from Catalogrecord").list();
+             catalogrecordList = (List<Catalogrecord>) session1.createQuery("from catalogrecord").list();
              transact.commit();
              }
          catch(HibernateException hex){

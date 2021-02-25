@@ -104,7 +104,7 @@ public class EmployeeImplement extends HibernateMainConfig implements IEmployeeS
          List<Employee> employeeList =  new ArrayList<>();
          try{
              transact=session1.beginTransaction();
-             employeeList = (List<Employee>) session1.createQuery("from Employee").list();
+             employeeList = (List<Employee>) session1.createQuery("from employee").list();
              transact.commit();
              }
          catch(HibernateException hex){
