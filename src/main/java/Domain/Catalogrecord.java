@@ -29,12 +29,13 @@ public class Catalogrecord {
 
     @Id	
     @Column(name="title")
+     private String title;
     private int id;
     
     private Set<Catalogloanrecord> Catalogloanrecords; 
     
     
-    private String title;	
+   	
     
     @Column(name="datereleased")	
     private Date datereleased;	

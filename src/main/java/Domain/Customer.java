@@ -6,8 +6,11 @@
 package Domain;
 import Domain.Person;
 import java.io.Serializable;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 /**
  *
@@ -25,6 +28,13 @@ public class Customer extends Person {
       @Column(name="customercode")
     private String customercode;
 
+       private Set<Catalogloanrecord> Catalogloanrecords;
+      
+        @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    public Set<Catalogloanrecord> getCatalogloanrecords() {
+        return Catalogloanrecords;
+    }
+      
     public Customer(int id, String fname, String lname, String addressbook, String customercode, String phonenumber ) {
         this.customercode = customercode;
         this.setFname(fname);

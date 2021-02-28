@@ -10,6 +10,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import com.mycompany.librarycatalogmanagementsystem.*;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -26,6 +29,14 @@ public class Employee extends Person {
      @Column(name="password")
     private String password;
 
+     
+      private Set<Catalogloanrecord> Catalogloanrecords;
+      
+         @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    public Set<Catalogloanrecord> getCatalogloanrecords() {
+        return Catalogloanrecords;
+    }
+     
        public Employee(int id, String fname, String lname,String jobtitle,String password, String employeecode) {
         this.employeecode = employeecode;
         this.setFname(fname);
