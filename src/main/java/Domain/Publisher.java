@@ -5,9 +5,15 @@
  */
 package Domain;
 import Domain.Person;
-import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import java.io.Serializable;	
+import javax.persistence.Column;	
+import javax.persistence.Entity;	
+import com.mycompany.librarycatalogmanagementsystem.*;	
+import java.util.Set;	
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,6 +29,8 @@ public class Publisher extends Person{
     @Column(name="publishercode")
     private String publishercode;
     
+    private Set<Catalogrecord> Catalogrecords;
+    
     public Publisher(int id, String fname, String lname, String publishercode) {
         this.publishercode = publishercode;
         this.setFname(fname);
@@ -35,7 +43,14 @@ public class Publisher extends Person{
         this.publishercode = publishercode;
     }
 
+    @OneToMany(mappedBy = "publisher", cascade = CascadeType.ALL)
+    public Set<Catalogrecord> getCatalogrecords() {
+        return Catalogrecords;
+    }
+    
 
+    
+    
     public String getPublisherCode() {
         return publishercode;
     }

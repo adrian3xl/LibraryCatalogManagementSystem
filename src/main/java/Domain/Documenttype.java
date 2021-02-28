@@ -4,9 +4,15 @@
  * and open the template in the editor.
  */
 package Domain;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import java.io.Serializable;	
+import javax.persistence.Column;	
+import javax.persistence.Entity;	
+import com.mycompany.librarycatalogmanagementsystem.*;	
+import java.util.Set;	
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 /**
  *
@@ -18,14 +24,30 @@ import javax.persistence.Table;
 public class Documenttype {
   
       @Id	
-    @Column(name="name")	
+    @Column(name="name")
+       private int id;
     private String name;	
 
+      private Set<Catalogrecord> Catalogrecords;
+      
     public Documenttype( String name) {	
         this.name=name;
   
     }	
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue
+    public long getId() {
+        return id;
+    }
+
+    
+      @OneToMany(mappedBy = "documenttype", cascade = CascadeType.ALL)
+    public Set<Catalogrecord> getCatalogrecords() {
+        return Catalogrecords;
+    }
+    
 
     public Documenttype(){	
     }	

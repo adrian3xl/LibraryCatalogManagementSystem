@@ -4,9 +4,16 @@
  * and open the template in the editor.
  */
 package Domain;
-import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import Domain.Person;
+import java.io.Serializable;	
+import javax.persistence.Column;	
+import javax.persistence.Entity;	
+import com.mycompany.librarycatalogmanagementsystem.*;	
+import java.util.Set;	
+import javax.persistence.CascadeType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,6 +29,8 @@ public class Author extends Person{
     @Column(name="authorcode")
     private String authorcode;
     
+    private Set<Catalogrecord> Catalogrecords;
+    
     public Author(int id, String fname, String lname, String authorcode) {
         this.authorcode = authorcode;
         this.setFname(fname);
@@ -29,6 +38,13 @@ public class Author extends Person{
         this.setId(id);
        
     }
+    
+    
+     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    public Set<Catalogrecord> getCatalogrecords() {
+        return Catalogrecords;
+    }
+    
 
     public void setAuthorCode(String authorcode) {
         this.authorcode = authorcode;
@@ -39,6 +55,9 @@ public class Author extends Person{
         return authorcode;
     }
 
+   
+    
+    
 
     public Author()
     {
