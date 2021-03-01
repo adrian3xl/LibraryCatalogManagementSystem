@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author KRichards
  */
-public class BooksPresntation {
+public class LCMSPresntation {
 
     public static void main(String[] args)
     {
@@ -39,7 +39,7 @@ public class BooksPresntation {
                } catch (IOException ex) {
                    System.out.println(ex.getMessage());
                } catch (SQLException ex) {
-                   Logger.getLogger(BooksPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
                }
            }
            else if(choice==2)
@@ -104,12 +104,7 @@ public class BooksPresntation {
             AuthorJDBCManager authJDBC = new AuthorJDBCManager();
             
              Scanner aScanner = new Scanner(System. in);
-            System.out.println("Enter ID: ");
-            anAuthor.setId(System.in.read());
-            
-            System.out.println("Enter title: ");
-      //      anAuthor.setAuthorTitle(aScanner.nextLine());
-            
+   
             System.out.println("Enter first name: ");
             anAuthor.setFname(aScanner.nextLine());
             
@@ -117,9 +112,9 @@ public class BooksPresntation {
             anAuthor.setLname(aScanner.nextLine());
             
             System.out.println("Enter school: ");
-        //    anAuthor.setAuthorSchool(aScanner.nextLine());
+          anAuthor.setAuthorCode(aScanner.nextLine());
          //   
-        //    authJDBC.updateAuthor(anAuthor);
+            authJDBC.updateAuthorJDBC(anAuthor);
             System.out.println("Author updated Using JDBC");
         }
         else if(jdbcChoice==3)
@@ -207,13 +202,6 @@ public class BooksPresntation {
             AuthorManager authORM = new AuthorManager();
             
              Scanner aScanner = new Scanner(System.in);
-            System.out.println("Enter ID: ");
-            int id=aScanner.nextInt();
-            anAuthor.setId(id);
-            
-            System.out.println("Enter title: ");
-            String title=aScanner.nextLine();
-         //   anAuthor.setAuthorTitle(title);
             
             System.out.println("Enter first name: ");
             anAuthor.setFname(aScanner.nextLine());
@@ -221,11 +209,11 @@ public class BooksPresntation {
             System.out.println("Enter last name: ");
             anAuthor.setLname(aScanner.nextLine());
             
-            System.out.println("Enter school: ");
-        //    anAuthor.setAuthorSchool(aScanner.nextLine());
+            System.out.println("Enter Author Code: ");
+           anAuthor.setAuthorCode(aScanner.nextLine());
             
             authORM.addAuthor(anAuthor);
-            System.out.println("Author Added Using JDBC");
+            System.out.println(" Author Added Using ORM");
         }
         else if(ormChoice==2)
         {
@@ -233,23 +221,18 @@ public class BooksPresntation {
             AuthorManager authORM = new AuthorManager();
             
              Scanner aScanner = new Scanner(System. in);
-            System.out.println("Enter ID: ");
-            anAuthor.setId(aScanner.nextInt());
-            
-            System.out.println("Enter title: ");
-       //     anAuthor.setAuthorTitle(aScanner.nextLine());
-            
+
             System.out.println("Enter first name: ");
             anAuthor.setFname(aScanner.nextLine());
             
             System.out.println("Enter last name: ");
             anAuthor.setLname(aScanner.nextLine());
             
-            System.out.println("Enter school: ");
-        //    anAuthor.setAuthorSchool(aScanner.nextLine());
+            System.out.println("Enter Author Code: ");
+             anAuthor.setAuthorCode(aScanner.nextLine());
             
             authORM.updateAuthor(anAuthor);
-            System.out.println("Author Added Using ORM");
+            System.out.println("Author Updated Using ORM");
         }
         else if(ormChoice==3)
         {
