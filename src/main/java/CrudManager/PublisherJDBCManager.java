@@ -18,7 +18,7 @@ import java.sql.ResultSet;
  */
 public class PublisherJDBCManager {
     
-public void addPublisher(Publisher anPublisher)
+public void addPublisherJBDC(Publisher anPublisher)
     {
         try {
             System.out.println("In Business Layer addPublisher(Publisher publisher) method");
@@ -34,7 +34,7 @@ public void addPublisher(Publisher anPublisher)
            System.out.println(ex.getMessage()); 
         }
     }
-    public Publisher getPublisher(int publisherId)
+    public Publisher getPublisherJDBC(int publisherId)
     {
         Publisher anPublisher=new Publisher();
         try {
