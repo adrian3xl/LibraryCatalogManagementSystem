@@ -19,15 +19,16 @@ public class CatalogrecordImplementJDBC extends JDBCMainConfiguration implements
     Statement statement;
     @Override
     public void addCatalogrecordJDBC(Catalogrecord catalogrecord) throws Exception {
-         String insertCatalogrecord = "INSERT INTO catalogrecord(id, genre, title, author_id, publisher_id, documenttype_id,daterelease,conditionstatement,catalogcode) "
+         String insertCatalogrecord = "INSERT INTO catalogrecord(id, genre, title, author_id, publisher_id, documenttype_id,datereleased,conditionstatement,catalogcode) "
                 + "values('" + catalogrecord.getId() + 
-                "', '" + catalogrecord.()+
-                "', '" + catalogrecord.() + 
-                "', '" + catalogrecord.() + 
-                "', '" + catalogrecord.() + 
-                "', '" + catalogrecord.() + 
-                "', '" + catalogrecord.() + 
-                "', '" + catalogrecord.() + "')";    
+                "', '" + catalogrecord.getTitle()+
+                "', '" + catalogrecord.getAuthor()+ 
+                "', '" + catalogrecord.getPublisher()+ 
+                "', '" + catalogrecord.getGenre()+ 
+                "', '" + catalogrecord.getDocumenttype()+ 
+                "', '" + catalogrecord.getDatereleased()+ 
+                  "', '" + catalogrecord.getCatalogcode()+ 
+                "', '" + catalogrecord.getConditionstatement()+ "')";    
         
         statement=this.getConnection().createStatement();        
         statement.execute(insertCatalogrecord);      
@@ -37,15 +38,15 @@ public class CatalogrecordImplementJDBC extends JDBCMainConfiguration implements
 
     @Override
     public void updateCatalogrecordJDBC(Catalogrecord catalogrecord) throws Exception {
-             String updateCatalogrecord = "UPDATE catalogrecord SET catalogrecordcode = '" + catalogrecord.getcatalogrecordcode()+ 
-                "', genre= '" + catalogrecord. () + 
-                "',  title = '" + catalogrecord. () + 
-                  "', author_id = '" + catalogrecord. () + 
-                   "', publisher_id = '" + catalogrecord. () + 
-                     "', documenttype_id = '" + catalogrecord. () + 
-                       "', conditionstatement = '" + catalogrecord. () +
-                  "',  daterelease = '" + catalogrecord. () +
-                      "', catalogcode = '" + catalogrecord. () + 
+             String updateCatalogrecord = "UPDATE catalogrecord SET catalogcode = '" + catalogrecord.getCatalogcode()+ 
+                "', genre= '" + catalogrecord.getGenre()+ 
+                "',  title = '" + catalogrecord.getTitle()+ 
+                  "', author_id = '" + catalogrecord.getAuthor()+ 
+                   "', publisher_id = '" + catalogrecord.getPublisher()+ 
+                     "', documenttype_id = '" + catalogrecord.getDocumenttype()+ 
+                       "', conditionstatement = '" + catalogrecord.getConditionstatement()+
+                  "',  datereleased = '" + catalogrecord.getDatereleased()+
+                  
                 "' WHERE ID = '"+ catalogrecord.getId() +"'";        
         
         statement = this.getConnection().createStatement();
@@ -60,7 +61,7 @@ public class CatalogrecordImplementJDBC extends JDBCMainConfiguration implements
 
 
     @Override
-    public Catalogrecord getCatalogrecordJDBC(int id) throws Exception {
+    public Catalogrecord getCatalogrecordJDBC(int catalogrecordID) throws Exception {
       String selectCatalogrecord = "Select * From catalogrecord Where id = " + catalogrecordID;
         statement=this.getConnection().createStatement();
         
@@ -68,12 +69,12 @@ public class CatalogrecordImplementJDBC extends JDBCMainConfiguration implements
         
         Catalogrecord catalogrecord=new Catalogrecord();
         catalogrecord.setId(catalogrecordID);
-        catalogrecord.setloancode(rs.getString("catalogrecord_id"));
-        catalogrecord.setFname(rs.getString(" customer_id "));
-       catalogrecord.setLname(rs.getString("loandate "));
-       cataloglrecord.setLname(rs.getString("recieveddate "));   
-       catalogrecord.setLname(rs.getString("employee_id ")); 
-       catalogrecord.setLname(rs.getString("loancode "));
+        catalogrecord.setCatalogcode(rs.getString("catalogrecord_id"));
+      //  catalogrecord.setAuthor(rs.(" author_id "));
+     //  catalogrecord.setPublisher(rs.getString("publisher_id "));
+       //cataloglrecord.setDatereleased(rs.getDate("datereleased "));   
+       catalogrecord.setConditionstatement(rs.getString("conditionstatement ")); 
+       catalogrecord.setCatalogcode(rs.getString("catalogcode "));
        
         return catalogrecord;
         

@@ -111,6 +111,19 @@ public class Catalogloanrecord {
      public void setId(int id) {
         this.id = id;
     }
+
+    public void setCatalogrecord(Catalogrecord catalogrecord) {
+        this.catalogrecord = catalogrecord;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
     
+     
     
 }

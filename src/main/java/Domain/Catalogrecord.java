@@ -111,7 +111,12 @@ public Catalogrecord(String title, Date datereleased,String conditionstatement,S
      public  String getConditionstatement() {	
         return conditionstatement;	
     }	
+
+    public String getCatalogcode() {
+        return catalogcode;
+    }
     
+     
    public void setTitle(String title) {	
         this.title = title;	
     }	 
@@ -127,5 +132,26 @@ public Catalogrecord(String title, Date datereleased,String conditionstatement,S
      public void setId(int id) {
         this.id = id;
     }
+
+    public void setCatalogcode(String catalogcode) {
+        this.catalogcode = catalogcode;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public void setDocumenttype(Documenttype documenttype) {
+        this.documenttype = documenttype;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
     
+     
 }

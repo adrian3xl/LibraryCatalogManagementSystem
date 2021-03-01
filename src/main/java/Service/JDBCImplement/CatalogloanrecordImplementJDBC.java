@@ -14,6 +14,7 @@ import java.sql.Statement;
  *
  * @author Adrian
  */
+
 public class CatalogloanrecordImplementJDBC extends JDBCMainConfiguration implements ICatalogloanrecordServiceJDBC {
  Statement statement;
  
@@ -21,13 +22,12 @@ public class CatalogloanrecordImplementJDBC extends JDBCMainConfiguration implem
     public void addCatalogloanrecordJDBC(Catalogloanrecord catalogloanrecord) throws Exception {
        String insertCatalogloanrecord = "INSERT INTO catalogloanrecord(id, catalogloanrecord_id, customer_id, loandate, recieveddate,loancode,employee_id) "
                 + "values('" + catalogloanrecord.getId() + 
-                "', '" + catalogloanrecord.()+
-                "', '" + catalogloanrecord.() + 
-                "', '" + catalogloanrecord.() + 
-                "', '" + catalogloanrecord.() + 
-                "', '" + catalogloanrecord.() + 
-                "', '" + catalogloanrecord.() + 
-                "', '" + catalogloanrecord.() + "')";    
+                "', '" + catalogloanrecord.getCustomer()+
+                "', '" + catalogloanrecord.getEmployee()+ 
+                "', '" + catalogloanrecord.getLoandate()+ 
+                "', '" + catalogloanrecord.getRecieveddate()+ 
+                "', '" + catalogloanrecord.getCatalogrecord()+ 
+                "', '" + catalogloanrecord.getLoancode() + "')";    
         
         statement=this.getConnection().createStatement();        
         statement.execute(insertCatalogloanrecord);      
@@ -37,13 +37,15 @@ public class CatalogloanrecordImplementJDBC extends JDBCMainConfiguration implem
 
     @Override
     public void updateCatalogloanrecordJDBC(Catalogloanrecord catalogloanrecord) throws Exception {
-         String updateCatalogloanrecord = "UPDATE catalogloanrecord SET loancode = '" + catalogloanrecord.getloancode()+ 
-                "', catalogrecord_id= '" + catalogloanrecord. () + 
-                "', customer_id = '" + catalogloanrecord. () + 
-                  "', loandate = '" + catalogloanrecord. () + 
-                   "', recieveddate = '" + catalogloanrecord. () + 
+         String updateCatalogloanrecord = "UPDATE catalogloanrecord SET loancode = '" + catalogloanrecord.getLoancode()+ 
+                "', catalogrecord_id= '" + catalogloanrecord.getCatalogrecord()+ 
+                "', customer_id = '" + catalogloanrecord.getCustomer()+ 
+                  "', loandate = '" + catalogloanrecord.getLoandate()+ 
+                   "', recieveddate = '" + catalogloanrecord.getRecieveddate()+ 
                   
-                  "', employee_id = '" + catalogloanrecord. () + 
+                  "', employee_id = '" + catalogloanrecord.getEmployee()+
+         
+                 
                 "' WHERE ID = '"+ catalogloanrecord.getId() +"'";        
         
         statement = this.getConnection().createStatement();
@@ -65,12 +67,12 @@ public class CatalogloanrecordImplementJDBC extends JDBCMainConfiguration implem
         
         Catalogloanrecord catalogloanrecord=new Catalogloanrecord();
         catalogloanrecord.setId(catalogloanrecordID);
-        catalogloanrecord.setloancode(rs.getString("catalogrecord_id"));
-        catalogloanrecord.setFname(rs.getString(" customer_id "));
-       catalogloanrecord.setLname(rs.getString("loandate "));
-       catalogloanrecord.setLname(rs.getString("recieveddate "));   
-       catalogloanrecord.setLname(rs.getString("employee_id ")); 
-       catalogloanrecord.setLname(rs.getString("loancode "));
+        catalogloanrecord.setLoancode(rs.getString("loancode"));
+       // catalogloanrecord.setCustomer(rs.getString(" customer_id "));
+    //   catalogloanrecord.setLoandate(rs.getString("loandate "));
+      // catalogloanrecord.setEmployee(rs.getString("employee_id "));   
+      // catalogloanrecord.setRecieveddate(rs.getString("recieveddate ")); 
+      // catalogloanrecord.setCatalogrecord(rs.getString("Catalogrecord_id "));
        
         return catalogloanrecord;
         
