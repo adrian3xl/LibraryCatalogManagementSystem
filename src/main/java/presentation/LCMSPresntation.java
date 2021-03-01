@@ -700,11 +700,15 @@ public class LCMSPresntation {
             //Runtime.getRuntime().exec("cls");
             
             System.out.println("Author return using JDBC\n");
-            System.out.println("ID: " + anAuthor.getId()+"\n");
-            System.out.println("Title: " + anAuthor.getAuthorTitle()+"\n");
-            System.out.println("First Name: " + anAuthor.getFname()+"\n");
-            System.out.println("Last Name: " + anAuthor.getLname()+"\n");
-            System.out.println("School: " + anAuthor.getAuthorSchool()+"\n");
+            System.out.println("ID: " + anCatalogrecord.getId()+"\n");
+            System.out.println("Title: " + anCatalogrecord.getTitle()+"\n");
+            System.out.println("Genre: " + anCatalogrecord.getFname()+"\n");
+            System.out.println("Document Type: " + anCatalogrecord.getLname()+"\n");
+            System.out.println("released date: " + anCatalogrecord.getAuthorSchool()+"\n");
+             System.out.println("Author: " + anCatalogrecord.getAuthorSchool()+"\n");
+              System.out.println("Publisher: " + anCatalogrecord.getAuthorSchool()+"\n");
+                 System.out.println("Catalog Code: " + anCatalogrecord.getAuthorSchool()+"\n");
+                    System.out.println("Condition Statement : " + anCatalogrecord.getAuthorSchool()+"\n");
         }
         else if(jdbcChoice==5)
         {
