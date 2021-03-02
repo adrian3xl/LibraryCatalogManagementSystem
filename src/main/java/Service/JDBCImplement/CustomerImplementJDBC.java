@@ -19,27 +19,30 @@ public class CustomerImplementJDBC extends JDBCMainConfiguration implements ICus
     Statement statement;
     @Override
     public void addCustomerJDBC(Customer customer) throws Exception {
-         String insertAuthor = "INSERT INTO author(id,customercode, firstname, lastname,addressbook,phonenumber ) "
+         String insertCustomer = "INSERT INTO customer(id,customercode, firstname, lastname,address,phonenumber ) "
                 + "values('" + customer.getId() + 
-                "', '" + customer.getAddressbook()+
-                  "', '" + customer.getCustomercode()+
+                   "', '" + customer.getCustomercode()+
+              
+                  "', '" + customer.getFname() + 
+                "', '" + customer.getLname() +
+               
+              "', '" + customer.getAddress()+
                   "', '" + customer.getPhonenumber()+
-                 
-                "', '" + customer.getFname() + 
-                "', '" + customer.getLname() + "')";    
+                "')";    
         
         statement=this.getConnection().createStatement();        
-        statement.execute(insertAuthor);      
+        statement.execute(insertCustomer);      
         
         this.getConnection().close();       
     }
 
     @Override
     public void updateCustomerJDBC(Customer customer) throws Exception {
-             String updateCustomer = "UPDATE author SET authorcode = '" + customer.getCustomercode()+ 
+             String updateCustomer = "UPDATE customer SET customerode = '" + customer.getCustomercode()+ 
                 "', firstname = '" + customer.getFname() + 
                 "', lastname = '" + customer.getLname() + 
-                 "', addressbook = '" + customer.getAddressbook() + 
+                      "', lastname = '" + customer.getCustomercode()+ 
+                 "', address = '" + customer.getAddress() + 
                 "', phonenumber = '" + customer.getPhonenumber() +  
                 "' WHERE ID = '"+ customer.getId() +"'";        
         
@@ -66,7 +69,7 @@ public class CustomerImplementJDBC extends JDBCMainConfiguration implements ICus
         customer.setCustomercode(rs.getString("customercode"));
          customer.setFname(rs.getString("firstname"));
          customer.setLname(rs.getString("lastname"));
-         customer.setAddressbook(rs.getString("addressbook "));
+         customer.setAddress(rs.getString("address "));
           customer.setPhonenumber(rs.getString("phonenumber"));
         
         return  customer;
@@ -87,7 +90,7 @@ public class CustomerImplementJDBC extends JDBCMainConfiguration implements ICus
     @Override
     public void deleteCustomerJDBC(int customerId) throws Exception {
          statement=this.getConnection().createStatement();
-        statement.execute("Delete From author Where id = " + customerId);
+        statement.execute("Delete From Customer Where id = " + customerId);
     }
 
     

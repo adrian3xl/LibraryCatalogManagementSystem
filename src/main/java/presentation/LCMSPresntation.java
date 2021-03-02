@@ -25,6 +25,7 @@ import Domain.Customer;
 import Domain.Documenttype;
 import Domain.Employee;
 import Domain.Genre;
+import Domain.Person;
 import Domain.Publisher;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -425,7 +426,7 @@ public class LCMSPresntation {
             anGenre.setName(aScanner.nextLine());
             
             GenreJDBC.addGenreJDBC(anGenre);
-            System.out.println("Author Added Using JDBC");
+            System.out.println("Genre Added Using JDBC");
             
         }
         else if(jdbcChoice==2)
@@ -891,11 +892,11 @@ public class LCMSPresntation {
       //  Runtime.getRuntime().exec("cls");
         
         System.out.println("JDBC\n");
-        System.out.println("1: Add Author");
-        System.out.println("2: Update Author");
-        System.out.println("3: Delete Author");
-        System.out.println("4: Select an Author");
-        System.out.println("5: Select all Authors");
+        System.out.println("1: Add Employee");
+        System.out.println("2: Update Employee");
+        System.out.println("3: Delete Employee");
+        System.out.println("4: Select an Employee");
+        System.out.println("5: Select all Employee");
         System.out.println("6: Exit\n");
         
         
@@ -923,7 +924,7 @@ public class LCMSPresntation {
             anEmployee.setPassword(aScanner.nextLine());
            
             EmployeeJDBC.addEmployeeJDBC(anEmployee);
-            System.out.println("Author Added Using JDBC");
+            System.out.println("Employee Added Using JDBC");
             
         }
         else if(jdbcChoice==2)
@@ -1045,7 +1046,7 @@ public class LCMSPresntation {
            anCustomer.setCustomercode(aScanner.nextLine());
            
              System.out.println("Enter customer address: ");
-           anCustomer.setAddressbook(aScanner.nextLine());
+           anCustomer.setAddress(aScanner.nextLine());
            
             
             System.out.println("Enter phone number : ");
@@ -1074,7 +1075,7 @@ public class LCMSPresntation {
            anCustomer.setCustomercode(aScanner.nextLine());
            
              System.out.println("Enter customer address: ");
-           anCustomer.setAddressbook(aScanner.nextLine());
+           anCustomer.setAddress(aScanner.nextLine());
            
             
             System.out.println("Enter phone number : ");
@@ -1111,7 +1112,7 @@ public class LCMSPresntation {
             System.out.println("Last Name: " + anCustomer.getLname()+"\n");
               System.out.println("customer ID: " + anCustomer.getCustomercode()+"\n");
                 System.out.println("Phone number: " + anCustomer.getPhonenumber()+"\n");
-            System.out.println("Address: " + anCustomer.getAddressbook()+"\n");
+            System.out.println("Address: " + anCustomer.getAddress()+"\n");
         }
         else if(jdbcChoice==5)
         {
@@ -1143,6 +1144,23 @@ public class LCMSPresntation {
         
     }
             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////          
     public static void ORMMenu() throws IOException, SQLException
     { 
      Scanner scan = new Scanner(System.in);
@@ -1491,7 +1509,7 @@ public class LCMSPresntation {
             anGenre.setName(aScanner.nextLine());
             
             GenreJDBC.addGenreJDBC(anGenre);
-            System.out.println("Author Added Using JDBC");
+            System.out.println("Genre Added Using JDBC");
             
         }
         else if(jdbcChoice==2)
@@ -2111,7 +2129,7 @@ public class LCMSPresntation {
            anCustomer.setCustomercode(aScanner.nextLine());
            
              System.out.println("Enter customer address: ");
-           anCustomer.setAddressbook(aScanner.nextLine());
+           anCustomer.setAddress(aScanner.nextLine());
            
             
             System.out.println("Enter phone number : ");
@@ -2140,7 +2158,7 @@ public class LCMSPresntation {
            anCustomer.setCustomercode(aScanner.nextLine());
            
              System.out.println("Enter customer address: ");
-           anCustomer.setAddressbook(aScanner.nextLine());
+           anCustomer.setAddress(aScanner.nextLine());
            
             
             System.out.println("Enter phone number : ");
@@ -2177,7 +2195,7 @@ public class LCMSPresntation {
             System.out.println("Last Name: " + anCustomer.getLname()+"\n");
               System.out.println("customer ID: " + anCustomer.getCustomercode()+"\n");
                 System.out.println("Phone number: " + anCustomer.getPhonenumber()+"\n");
-            System.out.println("Address: " + anCustomer.getAddressbook()+"\n");
+            System.out.println("Address: " + anCustomer.getAddress()+"\n");
         }
         else if(jdbcChoice==5)
         {

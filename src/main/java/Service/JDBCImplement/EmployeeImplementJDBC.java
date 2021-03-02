@@ -19,11 +19,12 @@ public class EmployeeImplementJDBC extends JDBCMainConfiguration implements IEmp
     Statement statement;
     @Override
     public void addEmployeeJDBC(Employee employee) throws Exception {
-        String insertAuthor = "INSERT INTO author(id, employeecode,jobtitle,password, firstname, lastname) "
+        String insertAuthor = "INSERT INTO employee(id,employeecode,jobtitle,password, firstname, lastname) "
                 + "values('" + employee.getId() + 
                 "', '" + employee.getEmployeecode()+
+                     "', '" + employee.getJobtitle() + 
                 "', '" + employee.getPassword() + 
-                "', '" + employee.getJobtitle() + 
+           
                 "', '" + employee.getFname() + 
                 "', '" + employee.getLname() + "')";    
         

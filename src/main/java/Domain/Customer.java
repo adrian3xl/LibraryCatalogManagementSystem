@@ -23,8 +23,8 @@ public class Customer extends Person {
 
     @Column(name="phonenumber")
     private String phonenumber;
-      @Column(name="addressbook")
-    private String addressbook;
+      @Column(name="address")
+    private String address;
       @Column(name="customercode")
     private String customercode;
 
@@ -35,12 +35,12 @@ public class Customer extends Person {
         return Catalogloanrecords;
     }
       
-    public Customer(int id, String fname, String lname, String addressbook, String customercode, String phonenumber ) {
+    public Customer(int id, String fname, String lname, String address, String customercode, String phonenumber ) {
         this.customercode = customercode;
         this.setFname(fname);
         this.setLname(lname);
         this.phonenumber=phonenumber;
-        this.addressbook=addressbook;
+        this.address=address;
         this.setId(id);
 
     }
@@ -49,8 +49,8 @@ public class Customer extends Person {
         this.phonenumber = phonenumber;
     }
 
-    public void setAddressbook(String addressbook) {
-        this.addressbook = addressbook;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public void setCustomercode(String customercode) {
@@ -61,8 +61,8 @@ public class Customer extends Person {
         return phonenumber;
     }
 
-    public String getAddressbook() {
-        return addressbook;
+    public String getAddress() {
+        return address;
     }
 
     public String getCustomercode() {
@@ -74,7 +74,7 @@ public class Customer extends Person {
 }
   @Override
     public String toString() {
-        return "{" + super.toString() + "Customer{phonenumber=" + phonenumber + ", addressbook=" + addressbook + ", customercode=" + customercode + '}';
+        return "{" + super.toString() + "Customer{phonenumber=" + phonenumber + ", address=" + address + ", customercode=" + customercode + '}';
     }
 
 
