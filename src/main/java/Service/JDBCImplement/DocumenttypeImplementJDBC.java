@@ -5,39 +5,84 @@
  */
 package Service.JDBCImplement;
 
+
 import Domain.Documenttype;
 import Service.IDocumenttypeServiceJDBC;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
  * @author Adrian
  */
 public class DocumenttypeImplementJDBC extends JDBCMainConfiguration implements IDocumenttypeServiceJDBC {
-
+ Statement statement;
     @Override
     public void addDocumenttypeJDBC(Documenttype documenttype) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ 
+         String insertDocumenttype = "INSERT INTO customer(id,name ) "
+                + "values('" +  documenttype.getId() + 
+               
+                "', '" +  documenttype.getName() +
+               
+        
+                "')";    
+        
+        statement=this.getConnection().createStatement();        
+        statement.execute(insertDocumenttype);      
+        
+        this.getConnection().close();       
     }
 
     @Override
     public void updateDocumenttypeJDBC(Documenttype documenttype) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         String updatedocumenttype = "UPDATE customer SET name = '" + documenttype.getName()+ 
+        
+             
+                "' WHERE ID = '"+ documenttype.getId() +"'";        
+        
+        statement = this.getConnection().createStatement();
+        
+        int rowsUpdated = statement.executeUpdate(updatedocumenttype);
+        if (rowsUpdated > 0) {
+            System.out.println("Update Successful");
+        }
+        
+        this.getConnection().close();  
     }
 
     @Override
-    public Documenttype getDocumenttypeJDBC(int id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Documenttype getDocumenttypeJDBC(int documenttypeID) throws Exception {
+       String selectDocumenttype = "Select * From Documenttype Where id = " + documenttypeID;
+        statement=this.getConnection().createStatement();
+        
+        ResultSet rs=statement.executeQuery(selectDocumenttype);
+        
+        Documenttype documenttype=new Documenttype();
+        documenttype.setId(documenttypeID);
+        
+         documenttype.setName(rs.getString("name"));
+       
+        
+        return  documenttype;
+        
     }
 
     @Override
     public ResultSet getAllDocumenttypeJDBC() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       ResultSet rs=null;
+        
+        String SelectAll="Select * From documenttype";
+        statement=this.getConnection().createStatement();
+        rs=statement.executeQuery(SelectAll);
+        
+        return rs;
     }
 
     @Override
-    public void deleteDocumenttypeJDBC(int id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteDocumenttypeJDBC(int documenttypeId) throws Exception {
+      statement=this.getConnection().createStatement();
+        statement.execute("Delete From documenttype Where id = " + documenttypeId);
     }
     
 }

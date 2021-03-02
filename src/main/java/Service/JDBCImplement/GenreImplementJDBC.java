@@ -20,10 +20,8 @@ public class GenreImplementJDBC extends JDBCMainConfiguration implements IGenreS
      
     @Override
     public void addGenreJDBC(Genre genre) throws Exception {
-        String insertGenre = "INSERT INTO genre( name) "
-                + "values('" + 
-               
-                "', '" + genre.getName()+ "')";    
+        String insertGenre = "INSERT INTO genre(name) "
+                + "values('" + genre.getName()+ "')";    
         
         statement=this.getConnection().createStatement();        
         statement.execute(insertGenre);      

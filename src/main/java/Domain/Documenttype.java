@@ -60,6 +60,12 @@ public class Documenttype {
         return name;	
     }	
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
+
    @Override	
     public String toString() {	
         return "Documenttype{" + "name=" + name + '}';	
