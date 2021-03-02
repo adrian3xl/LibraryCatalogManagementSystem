@@ -12,12 +12,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import CrudManager.AuthorJDBCManager;
 import CrudManager.AuthorManager;
+import CrudManager.CatalogloanrecordJDBCManager;
 import CrudManager.CatalogrecordJDBCManager;
+import CrudManager.CustomerJDBCManager;
 import CrudManager.DocumenttypeJDBCManager;
+import CrudManager.EmployeeJDBCManager;
 import CrudManager.GenreJDBCManager;
 import CrudManager.PublisherJDBCManager;
+import Domain.Catalogloanrecord;
 import Domain.Catalogrecord;
+import Domain.Customer;
 import Domain.Documenttype;
+import Domain.Employee;
 import Domain.Genre;
 import Domain.Publisher;
 import java.sql.ResultSet;
@@ -702,33 +708,37 @@ public class LCMSPresntation {
             System.out.println("Author return using JDBC\n");
             System.out.println("ID: " + anCatalogrecord.getId()+"\n");
             System.out.println("Title: " + anCatalogrecord.getTitle()+"\n");
-            System.out.println("Genre: " + anCatalogrecord.getFname()+"\n");
-            System.out.println("Document Type: " + anCatalogrecord.getLname()+"\n");
-            System.out.println("released date: " + anCatalogrecord.getAuthorSchool()+"\n");
-             System.out.println("Author: " + anCatalogrecord.getAuthorSchool()+"\n");
-              System.out.println("Publisher: " + anCatalogrecord.getAuthorSchool()+"\n");
-                 System.out.println("Catalog Code: " + anCatalogrecord.getAuthorSchool()+"\n");
-                    System.out.println("Condition Statement : " + anCatalogrecord.getAuthorSchool()+"\n");
+            System.out.println("Genre: " + anCatalogrecord.getGenre()+"\n");
+            System.out.println("Document Type: " + anCatalogrecord.getDocumenttype()+"\n");
+            System.out.println("released date: " + anCatalogrecord.getDatereleased()+"\n");
+             System.out.println("Author: " + anCatalogrecord.getAuthor()+"\n");
+              System.out.println("Publisher: " + anCatalogrecord.getPublisher()+"\n");
+                 System.out.println("Catalog Code: " + anCatalogrecord.getCatalogcode()+"\n");
+                    System.out.println("Condition Statement : " + anCatalogrecord.getConditionstatement()+"\n");
         }
         else if(jdbcChoice==5)
         {
             ResultSet rs=null;
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();            
+            CatalogrecordJDBCManager CatalogrecordJDBC = new CatalogrecordJDBCManager();          
             Scanner aScanner = new Scanner(System.in);
             
             
-            rs = authJDBC.getAllAuthors();
+            rs = CatalogrecordJDBC.getAllCatalogrecordJDBC();
             
            // Runtime.getRuntime().exec("cls");
             
-            System.out.println("ResultSet of authors return using JDBC\n");
+            System.out.println("ResultSet of Catalogrecords return using JDBC\n");
             
             while(rs.next()){
             System.out.println("ID: " + rs.getInt("ID")+"\n");
-            System.out.println("Title: " + rs.getString("Title")+"\n");
-            System.out.println("First Name: " + rs.getString("FirstName")+"\n");
-            System.out.println("Last Name: " + rs.getString("LastName")+"\n");
-            System.out.println("School: " + rs.getString("School") +"\n");
+            System.out.println("Title: " + rs.getString("title")+"\n");
+            System.out.println("Genre: " + rs.getString("Genre")+"\n");
+            System.out.println("Document Type:" + rs.getString("documenttype")+"\n");
+            System.out.println("released date: " + rs.getString("releaseddate") +"\n");
+            System.out.println("Author: " + rs.getString("author") +"\n");
+            System.out.println("Publisher: " + rs.getString("publisher") +"\n");
+            System.out.println("Catalog Code: " + rs.getString("catalogcode") +"\n");
+            System.out.println("Condition Statement : " + rs.getString("conditionstatement") +"\n");
         }
         }
         else if(jdbcChoice==6)
@@ -746,100 +756,109 @@ public class LCMSPresntation {
       //  Runtime.getRuntime().exec("cls");
         
         System.out.println("JDBC\n");
-        System.out.println("1: Add Author");
-        System.out.println("2: Update Author");
-        System.out.println("3: Delete Author");
-        System.out.println("4: Select an Author");
-        System.out.println("5: Select all Authors");
+        System.out.println("1: Add Catalog loan");
+        System.out.println("2: Update Catalog loan");
+        System.out.println("3: Delete Catalog loan");
+        System.out.println("4: Select an Catalog loan");
+        System.out.println("5: Select all Catalog loans");
         System.out.println("6: Exit\n");
         
         
         int jdbcChoice=scanJDBC.nextInt();
         if(jdbcChoice==1)
         {
-            Author anAuthor=new Author();
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();
+            Catalogloanrecord anCatalogloanrecord=new Catalogloanrecord();
+            CatalogloanrecordJDBCManager CatalogloanrecordJDBC = new CatalogloanrecordJDBCManager();
             
              Scanner aScanner = new Scanner(System.in);
-            System.out.println("Enter ID: ");
-            anAuthor.setId(System.in.read());
-            
+      
             System.out.println("Enter title: ");
-            anAuthor.setAuthorTitle(aScanner.nextLine());
+            //anCatalogloanrecord.setCatalogrecord(aScanner.nextLine());
             
-            System.out.println("Enter first name: ");
-            anAuthor.setFname(aScanner.nextLine());
+            System.out.println("Customer: ");
+           // anCatalogloanrecord.getCustomer(aScanner.nextLine());
             
-            System.out.println("Enter last name: ");
-            anAuthor.setLname(aScanner.nextLine());
+            System.out.println("Employee:");
+           // anCatalogloanrecord.getEmployee(aScanner.nextLine());
             
-            System.out.println("Enter school: ");
-            anAuthor.setAuthorSchool(aScanner.nextLine());
+            System.out.println("Loancode: ");
+             anCatalogloanrecord.setLoancode(aScanner.nextLine());
+             
+             System.out.println("Recieved date: ");
+            // anCatalogloanrecord.setRecieveddate(aScanner.nextLine());
             
-            authJDBC.addAuthor(anAuthor);
-            System.out.println("Author Added Using JDBC");
+            CatalogloanrecordJDBC.addCatalogloanrecordJDBC(anCatalogloanrecord);
+            System.out.println("Catalog loan record Added Using JDBC");
             
         }
         else if(jdbcChoice==2)
         {
-            Author anAuthor=new Author();
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();
+            Catalogloanrecord anCatalogloanrecord=new Catalogloanrecord();
+            CatalogloanrecordJDBCManager CatalogloanrecordJDBC = new CatalogloanrecordJDBCManager();
             
              Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
-            anAuthor.setId(System.in.read());
+            anCatalogloanrecord.setId(System.in.read());
             
             System.out.println("Enter title: ");
-            anAuthor.setAuthorTitle(aScanner.nextLine());
+           // anCatalogloanrecord.setCatalogrecord(aScanner.nextLine());
             
-            System.out.println("Enter first name: ");
-            anAuthor.setFname(aScanner.nextLine());
+            System.out.println("Enter Customer: ");
+          //  anCatalogloanrecord.setCustomer(aScanner.nextLine());
             
-            System.out.println("Enter last name: ");
-            anAuthor.setLname(aScanner.nextLine());
+            System.out.println("Enter Employee: ");
+            //anCatalogloanrecord.setEmployee(aScanner.nextLine());
             
-            System.out.println("Enter school: ");
-            anAuthor.setAuthorSchool(aScanner.nextLine());
+            System.out.println("Loan Date: ");
+            anCatalogloanrecord.setLoancode(aScanner.nextLine());
             
-            authJDBC.updateAuthor(anAuthor);
-            System.out.println("Author updated Using JDBC");
+            System.out.println("Loan code: ");
+            anCatalogloanrecord.setLoancode(aScanner.nextLine());
+            
+            System.out.println("Recieved date: ");
+          //  anCatalogloanrecord.setRecieveddate(aScanner.nextLine());
+  
+            CatalogloanrecordJDBC.updateCatalogloanrecordJDBC(anCatalogloanrecord);
+            System.out.println("Catalog loan record updated Using JDBC");
         }
         else if(jdbcChoice==3)
         {
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();            
+            CatalogloanrecordJDBCManager CatalogloanrecordJDBC = new CatalogloanrecordJDBCManager();            
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
             
-            authJDBC.deleteAuthor(aScanner.nextInt());
-            System.out.println("Author deleted using JDBC");
+            CatalogloanrecordJDBC.deleteCatalogloanrecordJDBC(aScanner.nextInt());
+            System.out.println("Catalog loan record deleted using JDBC");
         }
         else if(jdbcChoice==4)
         {
-            Author anAuthor=new Author();
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();            
+            Catalogloanrecord anCatalogloanrecord=new Catalogloanrecord();
+            CatalogloanrecordJDBCManager CatalogloanrecordJDBC = new CatalogloanrecordJDBCManager();            
             Scanner aScanner = new Scanner(System.in);
             
             System.out.println("Enter ID: ");
             int id = aScanner.nextInt();
-            anAuthor = authJDBC.getAuthor(id);
+            anCatalogloanrecord = CatalogloanrecordJDBC.getCatalogloanrecordJDBC(id);
             
             //Runtime.getRuntime().exec("cls");
             
             System.out.println("Author return using JDBC\n");
-            System.out.println("ID: " + anAuthor.getId()+"\n");
-            System.out.println("Title: " + anAuthor.getAuthorTitle()+"\n");
-            System.out.println("First Name: " + anAuthor.getFname()+"\n");
-            System.out.println("Last Name: " + anAuthor.getLname()+"\n");
-            System.out.println("School: " + anAuthor.getAuthorSchool()+"\n");
+            System.out.println("ID: " + anCatalogloanrecord.getId()+"\n");
+            System.out.println("Title: " + anCatalogloanrecord.getCatalogrecord()+"\n");
+            System.out.println("Customer: " + anCatalogloanrecord.getCustomer()+"\n");
+            System.out.println("Employee: " + anCatalogloanrecord.getEmployee()+"\n");
+            System.out.println("Loandate: " + anCatalogloanrecord.getLoandate()+"\n");
+             System.out.println("Recieved date: " + anCatalogloanrecord.getRecieveddate()+"\n");
+          
         }
         else if(jdbcChoice==5)
         {
             ResultSet rs=null;
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();            
+            CatalogloanrecordJDBCManager CatalogloanrecordJDBC = new CatalogloanrecordJDBCManager();            
             Scanner aScanner = new Scanner(System.in);
             
             
-            rs = authJDBC.getAllAuthors();
+            rs = CatalogloanrecordJDBC.getAllCatalogloanrecordJDBC();
             
            // Runtime.getRuntime().exec("cls");
             
@@ -848,9 +867,11 @@ public class LCMSPresntation {
             while(rs.next()){
             System.out.println("ID: " + rs.getInt("ID")+"\n");
             System.out.println("Title: " + rs.getString("Title")+"\n");
-            System.out.println("First Name: " + rs.getString("FirstName")+"\n");
-            System.out.println("Last Name: " + rs.getString("LastName")+"\n");
-            System.out.println("School: " + rs.getString("School") +"\n");
+           System.out.println("Customer: " + rs.getString("customer_id")+"\n");
+            System.out.println("Employee: " + rs.getString("employee_id")+"\n");
+            System.out.println("Loandate: " + rs.getString("loandate") +"\n");
+             System.out.println("Recieved date: " + rs.getString("recieveddate") +"\n");
+            
         }
         }
         else if(jdbcChoice==6)
@@ -879,89 +900,95 @@ public class LCMSPresntation {
         int jdbcChoice=scanJDBC.nextInt();
         if(jdbcChoice==1)
         {
-            Author anAuthor=new Author();
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();
+            Employee anEmployee=new Employee();
+            EmployeeJDBCManager EmployeeJDBC = new EmployeeJDBCManager();
             
              Scanner aScanner = new Scanner(System.in);
-            System.out.println("Enter ID: ");
-            anAuthor.setId(System.in.read());
-            
-            System.out.println("Enter title: ");
-            anAuthor.setAuthorTitle(aScanner.nextLine());
-            
+
             System.out.println("Enter first name: ");
-            anAuthor.setFname(aScanner.nextLine());
+            anEmployee.setFname(aScanner.nextLine());
             
             System.out.println("Enter last name: ");
-            anAuthor.setLname(aScanner.nextLine());
+            anEmployee.setLname(aScanner.nextLine());
             
-            System.out.println("Enter school: ");
-            anAuthor.setAuthorSchool(aScanner.nextLine());
+            System.out.println("Employee ID: ");
+            anEmployee.setEmployeecode(aScanner.nextLine());
             
-            authJDBC.addAuthor(anAuthor);
+            System.out.println("Enter Job title: ");
+            anEmployee.setJobtitle(aScanner.nextLine());
+            
+            System.out.println("Enter password: ");
+            anEmployee.setPassword(aScanner.nextLine());
+           
+            EmployeeJDBC.addEmployeeJDBC(anEmployee);
             System.out.println("Author Added Using JDBC");
             
         }
         else if(jdbcChoice==2)
         {
-            Author anAuthor=new Author();
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();
+            Employee anEmployee=new Employee();
+            EmployeeJDBCManager EmployeeJDBC = new EmployeeJDBCManager();
             
              Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
-            anAuthor.setId(System.in.read());
+            anEmployee.setId(System.in.read());
             
-            System.out.println("Enter title: ");
-            anAuthor.setAuthorTitle(aScanner.nextLine());
-            
-            System.out.println("Enter first name: ");
-            anAuthor.setFname(aScanner.nextLine());
+           System.out.println("Enter first name: ");
+            anEmployee.setFname(aScanner.nextLine());
             
             System.out.println("Enter last name: ");
-            anAuthor.setLname(aScanner.nextLine());
+            anEmployee.setLname(aScanner.nextLine());
             
-            System.out.println("Enter school: ");
-            anAuthor.setAuthorSchool(aScanner.nextLine());
+            System.out.println("Employee ID: ");
+            anEmployee.setEmployeecode(aScanner.nextLine());
             
-            authJDBC.updateAuthor(anAuthor);
-            System.out.println("Author updated Using JDBC");
+            System.out.println("Enter Job title: ");
+            anEmployee.setJobtitle(aScanner.nextLine());
+            
+            System.out.println("Enter password: ");
+            anEmployee.setPassword(aScanner.nextLine());
+            
+             EmployeeJDBC.updateEmployeeJDBC(anEmployee);
+            System.out.println(" Employee updated Using JDBC");
         }
         else if(jdbcChoice==3)
         {
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();            
+             EmployeeJDBCManager  EmployeeJDBC = new  EmployeeJDBCManager();            
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
             
-            authJDBC.deleteAuthor(aScanner.nextInt());
+             EmployeeJDBC.deleteEmployeeJDBC(aScanner.nextInt());
             System.out.println("Author deleted using JDBC");
         }
         else if(jdbcChoice==4)
         {
-            Author anAuthor=new Author();
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();            
+             Employee anEmployee=new Employee();
+            EmployeeJDBCManager EmployeeJDBC = new EmployeeJDBCManager();
+            
             Scanner aScanner = new Scanner(System.in);
             
             System.out.println("Enter ID: ");
             int id = aScanner.nextInt();
-            anAuthor = authJDBC.getAuthor(id);
+            anEmployee = EmployeeJDBC.getEmployeeJDBC(id);
             
             //Runtime.getRuntime().exec("cls");
             
             System.out.println("Author return using JDBC\n");
-            System.out.println("ID: " + anAuthor.getId()+"\n");
-            System.out.println("Title: " + anAuthor.getAuthorTitle()+"\n");
-            System.out.println("First Name: " + anAuthor.getFname()+"\n");
-            System.out.println("Last Name: " + anAuthor.getLname()+"\n");
-            System.out.println("School: " + anAuthor.getAuthorSchool()+"\n");
+            System.out.println("ID: " + anEmployee.getId()+"\n");
+            System.out.println("First Name: " + anEmployee.getFname()+"\n");
+            System.out.println("Last Name: " + anEmployee.getLname()+"\n");
+            System.out.println("School: " + anEmployee.getJobtitle()+"\n");
+             // System.out.println("School: " + anEmployee.getPassword()+"\n");
+             System.out.println("School: " + anEmployee.getEmployeecode()+"\n");
         }
         else if(jdbcChoice==5)
         {
             ResultSet rs=null;
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();            
+            EmployeeJDBCManager EmployeeJDBC = new EmployeeJDBCManager();            
             Scanner aScanner = new Scanner(System.in);
             
             
-            rs = authJDBC.getAllAuthors();
+            rs = EmployeeJDBC.getAllEmployeeJDBC();
             
            // Runtime.getRuntime().exec("cls");
             
@@ -969,10 +996,10 @@ public class LCMSPresntation {
             
             while(rs.next()){
             System.out.println("ID: " + rs.getInt("ID")+"\n");
-            System.out.println("Title: " + rs.getString("Title")+"\n");
-            System.out.println("First Name: " + rs.getString("FirstName")+"\n");
-            System.out.println("Last Name: " + rs.getString("LastName")+"\n");
-            System.out.println("School: " + rs.getString("School") +"\n");
+            System.out.println("Job Title: " + rs.getString("jobetitle")+"\n");
+            System.out.println("First Name: " + rs.getString("firstname")+"\n");
+            System.out.println("Last Name: " + rs.getString("lastname")+"\n");
+            
         }
         }
         else if(jdbcChoice==6)
@@ -990,100 +1017,108 @@ public class LCMSPresntation {
       //  Runtime.getRuntime().exec("cls");
         
         System.out.println("JDBC\n");
-        System.out.println("1: Add Author");
-        System.out.println("2: Update Author");
-        System.out.println("3: Delete Author");
-        System.out.println("4: Select an Author");
-        System.out.println("5: Select all Authors");
+        System.out.println("1: Add Customer");
+        System.out.println("2: Update Customer");
+        System.out.println("3: Delete Customer");
+        System.out.println("4: Select an Customer");
+        System.out.println("5: Select all Customer");
         System.out.println("6: Exit\n");
         
         
         int jdbcChoice=scanJDBC.nextInt();
         if(jdbcChoice==1)
         {
-            Author anAuthor=new Author();
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();
+            Customer anCustomer=new Customer();
+            CustomerJDBCManager CustomerJDBC = new CustomerJDBCManager();
             
              Scanner aScanner = new Scanner(System.in);
-            System.out.println("Enter ID: ");
-            anAuthor.setId(System.in.read());
-            
-            System.out.println("Enter title: ");
-            anAuthor.setAuthorTitle(aScanner.nextLine());
-            
+ 
             System.out.println("Enter first name: ");
-            anAuthor.setFname(aScanner.nextLine());
-            
+            anCustomer.setFname(aScanner.nextLine());
+                      
             System.out.println("Enter last name: ");
-            anAuthor.setLname(aScanner.nextLine());
+            anCustomer.setLname(aScanner.nextLine());
+             
+           System.out.println("Enter customer ID: ");
+           anCustomer.setCustomercode(aScanner.nextLine());
+           
+             System.out.println("Enter customer address: ");
+           anCustomer.setAddressbook(aScanner.nextLine());
+           
             
-            System.out.println("Enter school: ");
-            anAuthor.setAuthorSchool(aScanner.nextLine());
+            System.out.println("Enter phone number : ");
+            anCustomer.setPhonenumber(aScanner.nextLine());
             
-            authJDBC.addAuthor(anAuthor);
-            System.out.println("Author Added Using JDBC");
+            CustomerJDBC.addCustomerJDBC(anCustomer);
+            System.out.println("Customer Added Using JDBC");
             
         }
         else if(jdbcChoice==2)
         {
-            Author anAuthor=new Author();
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();
+           Customer anCustomer=new Customer();
+            CustomerJDBCManager CustomerJDBC = new CustomerJDBCManager();
             
              Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
-            anAuthor.setId(System.in.read());
-            
-            System.out.println("Enter title: ");
-            anAuthor.setAuthorTitle(aScanner.nextLine());
+            anCustomer.setId(System.in.read());
             
             System.out.println("Enter first name: ");
-            anAuthor.setFname(aScanner.nextLine());
-            
+            anCustomer.setFname(aScanner.nextLine());
+                      
             System.out.println("Enter last name: ");
-            anAuthor.setLname(aScanner.nextLine());
+            anCustomer.setLname(aScanner.nextLine());
+             
+           System.out.println("Enter customer ID: ");
+           anCustomer.setCustomercode(aScanner.nextLine());
+           
+             System.out.println("Enter customer address: ");
+           anCustomer.setAddressbook(aScanner.nextLine());
+           
             
-            System.out.println("Enter school: ");
-            anAuthor.setAuthorSchool(aScanner.nextLine());
+            System.out.println("Enter phone number : ");
+            anCustomer.setPhonenumber(aScanner.nextLine());
             
-            authJDBC.updateAuthor(anAuthor);
-            System.out.println("Author updated Using JDBC");
+            
+            CustomerJDBC.updateCustomerJDBC(anCustomer);
+            System.out.println("Customer updated Using JDBC");
         }
         else if(jdbcChoice==3)
         {
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();            
+            CustomerJDBCManager CustomerJDBC = new CustomerJDBCManager();        
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
             
-            authJDBC.deleteAuthor(aScanner.nextInt());
-            System.out.println("Author deleted using JDBC");
+             CustomerJDBC.deleteCustomerJDBC(aScanner.nextInt());
+            System.out.println(" Customer deleted using JDBC");
         }
         else if(jdbcChoice==4)
         {
-            Author anAuthor=new Author();
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();            
+             Customer anCustomer=new  Customer();
+           CustomerJDBCManager CustomerJDBC = new CustomerJDBCManager();            
             Scanner aScanner = new Scanner(System.in);
             
             System.out.println("Enter ID: ");
             int id = aScanner.nextInt();
-            anAuthor = authJDBC.getAuthor(id);
+            anCustomer = CustomerJDBC.getCustomerJDBC(id);
             
             //Runtime.getRuntime().exec("cls");
             
-            System.out.println("Author return using JDBC\n");
-            System.out.println("ID: " + anAuthor.getId()+"\n");
-            System.out.println("Title: " + anAuthor.getAuthorTitle()+"\n");
-            System.out.println("First Name: " + anAuthor.getFname()+"\n");
-            System.out.println("Last Name: " + anAuthor.getLname()+"\n");
-            System.out.println("School: " + anAuthor.getAuthorSchool()+"\n");
+            System.out.println("Customer return using JDBC\n");
+            System.out.println("ID: " + anCustomer.getId()+"\n");
+            System.out.println("First Name: " + anCustomer.getFname()+"\n");
+            System.out.println("Last Name: " + anCustomer.getLname()+"\n");
+              System.out.println("customer ID: " + anCustomer.getCustomercode()+"\n");
+                System.out.println("Phone number: " + anCustomer.getPhonenumber()+"\n");
+            System.out.println("Address: " + anCustomer.getAddressbook()+"\n");
         }
         else if(jdbcChoice==5)
         {
             ResultSet rs=null;
-            AuthorJDBCManager authJDBC = new AuthorJDBCManager();            
+            CustomerJDBCManager CustomerJDBC = new CustomerJDBCManager();            
             Scanner aScanner = new Scanner(System.in);
             
             
-            rs = authJDBC.getAllAuthors();
+            rs = CustomerJDBC.getAllCustomerJDBC();
             
            // Runtime.getRuntime().exec("cls");
             
@@ -1091,10 +1126,11 @@ public class LCMSPresntation {
             
             while(rs.next()){
             System.out.println("ID: " + rs.getInt("ID")+"\n");
-            System.out.println("Title: " + rs.getString("Title")+"\n");
-            System.out.println("First Name: " + rs.getString("FirstName")+"\n");
-            System.out.println("Last Name: " + rs.getString("LastName")+"\n");
-            System.out.println("School: " + rs.getString("School") +"\n");
+            System.out.println("First Name: " + rs.getString("firstname")+"\n");
+            System.out.println("Last Name: " + rs.getString("lastname")+"\n");
+            System.out.println("Customer ID: " + rs.getString("customercode") +"\n");
+            System.out.println("Phonenumber: " + rs.getString("phonenumber")+"\n");
+            System.out.println("Address: " + rs.getString("address")+"\n");
         }
         }
         else if(jdbcChoice==6)
