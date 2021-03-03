@@ -19,16 +19,10 @@ public class DocumenttypeImplementJDBC extends JDBCMainConfiguration implements 
  Statement statement;
     @Override
     public void addDocumenttypeJDBC(Documenttype documenttype) throws Exception {
- 
-         String insertDocumenttype = "INSERT INTO customer(id,name ) "
-                + "values('" +  documenttype.getId() + 
-               
-                "', '" +  documenttype.getName() +
-               
+ String insertDocumenttype = "INSERT INTO documenttype(name) "
+                + "values('" + documenttype.getName()+ "')";    
         
-                "')";    
-        
-        statement=this.getConnection().createStatement();        
+        statement=this.getConnection().createStatement();            
         statement.execute(insertDocumenttype);      
         
         this.getConnection().close();       
