@@ -1269,7 +1269,7 @@ public class LCMSPresntation {
         
       //  Runtime.getRuntime().exec("cls");
         
-        System.out.println("JDBC\n");
+        System.out.println("ORM\n");
         System.out.println("1: Add Author");
         System.out.println("2: Update Author");
         System.out.println("3: Delete Author");
@@ -1454,7 +1454,7 @@ public class LCMSPresntation {
             
             //Runtime.getRuntime().exec("cls");
             
-            System.out.println("Author return using ORM\n");
+            System.out.println("Publisher return using ORM\n");
             System.out.println("ID: " + anPublisher.getId()+"\n");
             System.out.println("Publisher First Name: " + anPublisher.getFname()+"\n");
             System.out.println("Publisher Last Name: " + anPublisher.getLname()+"\n");
@@ -1556,7 +1556,7 @@ public class LCMSPresntation {
             
             //Runtime.getRuntime().exec("cls");
             
-            System.out.println("Author return using ORM\n");
+            System.out.println("Genre return using ORM\n");
             System.out.println("ID: " + anGenre.getId()+"\n");
             System.out.println("Genre Name: " + anGenre.getName()+"\n");
         
@@ -1656,7 +1656,7 @@ public class LCMSPresntation {
             
             //Runtime.getRuntime().exec("cls");
             
-            System.out.println("Author return using ORM\n");
+            System.out.println("Doctype return using ORM\n");
             System.out.println("ID: " + anDocumenttype.getId()+"\n");
  
             System.out.println("Documenttype Name: " + anDocumenttype.getName()+"\n");
@@ -1776,7 +1776,7 @@ public class LCMSPresntation {
             
             
             Catalogrecord.updateCatalogrecord(anCatalogrecord);
-            System.out.println("Author updated Using ORM");
+            System.out.println("Catalog record updated Using ORM");
         }
         else if(ORMChoice==3)
         {
@@ -1785,7 +1785,7 @@ public class LCMSPresntation {
             System.out.println("Enter ID: ");
             
             Catalogrecord.deleteCatalogrecord(Catalogrecord.class,aScanner.nextInt());
-            System.out.println("Catalogrecord deleted using ORM");
+            System.out.println("Catalog record deleted using ORM");
         }
         else if(ORMChoice==4)
         {
@@ -1956,7 +1956,7 @@ public class LCMSPresntation {
             
            // Runtime.getRuntime().exec("cls");
             
-            System.out.println("ResultSet of authors return using ORM\n");
+            System.out.println("ResultSet of catalog loan return using ORM\n");
             
             while(rs.next()){
             System.out.println("ID: " + rs.getInt("ID")+"\n");
@@ -2052,7 +2052,7 @@ public class LCMSPresntation {
             System.out.println("Enter ID: ");
             
              EmployeeORM.deleteEmployee(Employee.class,aScanner.nextInt());
-            System.out.println("Author deleted using ORM");
+            System.out.println("Employee deleted using ORM");
         }
         else if(ORMChoice==4)
         {
@@ -2221,7 +2221,7 @@ public class LCMSPresntation {
             
            // Runtime.getRuntime().exec("cls");
             
-            System.out.println("ResultSet of authors return using ORM\n");
+            System.out.println("ResultSet of customer return using ORM\n");
             
             
              for(int i=0; i<customers.size(); i++){
