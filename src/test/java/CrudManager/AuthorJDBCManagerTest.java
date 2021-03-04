@@ -45,11 +45,11 @@ public class AuthorJDBCManagerTest {
     @Test
     public void testAddAuthorJDBC() {
         System.out.println("addAuthorJDBC");
-        Author anAuthor = null;
+        Author anAuthor = new Author(20,"Adrian","Peterson","AP1");
         AuthorJDBCManager instance = new AuthorJDBCManager();
         instance.addAuthorJDBC(anAuthor);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -58,13 +58,13 @@ public class AuthorJDBCManagerTest {
     @Test
     public void testGetAuthorJDBC() {
         System.out.println("getAuthorJDBC");
-        int authorId = 0;
+        int authorId = 1;
         AuthorJDBCManager instance = new AuthorJDBCManager();
-        Author expResult = null;
+        Author expResult = new Author(20,"Adrian","Bailey","AB1");
         Author result = instance.getAuthorJDBC(authorId);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**

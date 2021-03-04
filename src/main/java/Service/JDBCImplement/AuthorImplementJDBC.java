@@ -64,10 +64,10 @@ public class AuthorImplementJDBC extends JDBCMainConfiguration implements IAutho
         
         Author author=new Author();
         author.setId(authorID);
-        author.setAuthorCode(rs.getString("authorcode"));
+       
         author.setFname(rs.getString("firstname"));
         author.setLname(rs.getString("lastname"));
-             
+        author.setAuthorCode(rs.getString("authorcode"));
         
         return author;
         
