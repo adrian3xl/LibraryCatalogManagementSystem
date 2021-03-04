@@ -49,7 +49,7 @@ public class AuthorJDBCManagerTest {
         AuthorJDBCManager instance = new AuthorJDBCManager();
         instance.addAuthorJDBC(anAuthor);
         // TODO review the generated test code and remove the default call to fail.
-       // fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -64,7 +64,7 @@ public class AuthorJDBCManagerTest {
         Author result = instance.getAuthorJDBC(authorId);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-       // fail("The test case is a prototype.");
+       fail("The test case is a prototype.");
     }
 
     /**
@@ -73,7 +73,7 @@ public class AuthorJDBCManagerTest {
     @Test
     public void testUpdateAuthorJDBC() {
         System.out.println("updateAuthorJDBC");
-        Author anAuthor = null;
+        Author anAuthor =new Author(20,"Adrian","Bailey","AB1");
         AuthorJDBCManager instance = new AuthorJDBCManager();
         instance.updateAuthorJDBC(anAuthor);
         // TODO review the generated test code and remove the default call to fail.
