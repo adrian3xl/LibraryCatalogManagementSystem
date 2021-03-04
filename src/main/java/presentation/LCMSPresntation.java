@@ -1462,23 +1462,25 @@ public class LCMSPresntation {
         }
         else if(ORMChoice==5)
         {
-            ResultSet rs=null;
+             List< Publisher>  publishers =new ArrayList();
              PublisherManager PublisherORM = new PublisherManager();          
             Scanner aScanner = new Scanner(System.in);
             
             
-            Publisher.PublisherORM.getAllPublishers();
+//            Publisher.PublisherORM.getAllPublishers();
             
            // Runtime.getRuntime().exec("cls");
             
-            System.out.println("ResultSet of authors return using ORM\n");
+            System.out.println("ResultSet of Publisher return using ORM\n");
             
-            while(rs.next()){
-            System.out.println("ID: " + rs.getInt("ID")+"\n");
-            System.out.println("First Name: " + rs.getString("firstname")+"\n");
-            System.out.println("Last Name: " + rs.getString("lastname")+"\n");
-            System.out.println("Publisher Code: " + rs.getString("publishercode") +"\n");
-        }
+            
+             for(int i=0; i<publishers.size(); i++){
+            System.out.println("ID: " + publishers.get(i).getId()+"\n");
+            System.out.println("publishers code: " + publishers.get(i).getPublisherCode()+"\n");
+            System.out.println("First Name: " + publishers.get(i).getFname()+"\n");
+            System.out.println("Last Name: " + publishers.get(i).getLname()+"\n");
+       
+            }
         }
         else if(ORMChoice==6)
         {
@@ -1531,7 +1533,7 @@ public class LCMSPresntation {
        System.out.println("Genre name: ");
             anGenre.setName(aScanner.nextLine());
             
-            GenreORM.updateGenreORM(anGenre);
+            GenreORM.updateGenre(anGenre);
             System.out.println("Genre updated Using ORM");
         }
         else if(ORMChoice==3)
@@ -1540,7 +1542,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
             
-            GenreORM.deleteGenreORM(aScanner.nextInt());
+            GenreORM.deleteGenre(Genre.class,aScanner.nextInt());
             System.out.println("Genre deleted using ORM");
         }
         else if(ORMChoice==4)
@@ -1550,8 +1552,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System.in);
             
             System.out.println("Enter ID: ");
-            int id = aScanner.nextInt();
-            anGenre = GenreORM.getGenreORM(id);
+            anGenre = GenreORM.getGenre(aScanner.nextInt());
             
             //Runtime.getRuntime().exec("cls");
             
@@ -1562,23 +1563,23 @@ public class LCMSPresntation {
         }
         else if(ORMChoice==5)
         {
-            ResultSet rs=null;
+             List< Genre>  genres =new ArrayList();
             GenreManager GenreORM = new GenreManager();            
             Scanner aScanner = new Scanner(System.in);
             
             
-            rs = GenreORM.getAllGenreORM();
+           genres = (List<Genre>) GenreORM.getAllGenre();
             
            // Runtime.getRuntime().exec("cls");
             
-            System.out.println("ResultSet of authors return using ORM\n");
+            System.out.println("ResultSet of genres return using ORM\n");
             
-            while(rs.next()){
-            System.out.println("ID: " + rs.getInt("ID")+"\n");
-  
-            System.out.println("Genre Name: " + rs.getString("name")+"\n");
- 
-        }
+            
+             for(int i=0; i< genres.size(); i++){
+            System.out.println("ID: " +  genres.get(i).getId()+"\n");
+            System.out.println("Genre Name: " +  genres.get(i).getName()+"\n");
+        
+            }
         }
         else if(ORMChoice==6)
         {
@@ -1616,7 +1617,7 @@ public class LCMSPresntation {
             System.out.println("Enter Documenttype name: ");
             anDocumenttype.setName(aScanner.nextLine());
  
-            DocumenttypeORM.addDocumenttypeORM(anDocumenttype);
+            DocumenttypeORM.addDocumenttype(anDocumenttype);
             System.out.println("Documenttype Added Using ORM");
             
         }
@@ -1630,7 +1631,7 @@ public class LCMSPresntation {
             System.out.println("Enter Documenttype name: ");
             anDocumenttype.setName(aScanner.nextLine());
             
-            DocumenttypeORM.updateDocumenttypeORM(anDocumenttype);
+            DocumenttypeORM.updateDocumenttype(anDocumenttype);
             System.out.println("Document type updated Using ORM");
         }
         else if(ORMChoice==3)
@@ -1639,7 +1640,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
             
-            DocumenttypeORM.deleteDocumenttypeORM(aScanner.nextInt());
+            DocumenttypeORM.deleteDocumenttype(Documenttype.class,aScanner.nextInt());
             System.out.println("Documenttype deleted using ORM");
         }
         else if(ORMChoice==4)
@@ -1689,7 +1690,7 @@ public class LCMSPresntation {
         
     }
      
-         public static void CatalogrecordMenu() throws IOException, SQLException
+         public static void CatalogrecordORMMenu() throws IOException, SQLException
     {
          Scanner scanORM = new Scanner(System.in);
         
@@ -1783,7 +1784,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
             
-            Catalogrecord.deleteCatalogrecord(aScanner.nextInt());
+            Catalogrecord.deleteCatalogrecord(Catalogrecord.class,aScanner.nextInt());
             System.out.println("Catalogrecord deleted using ORM");
         }
         else if(ORMChoice==4)
@@ -1842,7 +1843,7 @@ public class LCMSPresntation {
         
     }
          
-          public static void CatalogloanMenu() throws IOException, SQLException
+          public static void CatalogloanORMMenu() throws IOException, SQLException
     {
          Scanner scanORM = new Scanner(System.in);
         
@@ -1911,7 +1912,7 @@ public class LCMSPresntation {
             System.out.println("Recieved date: ");
           //  anCatalogloanrecord.setRecieveddate(aScanner.nextLine());
   
-            CatalogloanrecordORM.updateCatalogloanrecordORM(anCatalogloanrecord);
+            CatalogloanrecordORM.updateCatalogloanrecord(anCatalogloanrecord);
             System.out.println("Catalog loan record updated Using ORM");
         }
         else if(ORMChoice==3)
@@ -2013,7 +2014,7 @@ public class LCMSPresntation {
             System.out.println("Enter password: ");
             anEmployee.setPassword(aScanner.nextLine());
            
-            EmployeeORM.addEmployeeORM(anEmployee);
+            EmployeeORM.addEmployee(anEmployee);
             System.out.println("Author Added Using ORM");
             
         }
@@ -2041,7 +2042,7 @@ public class LCMSPresntation {
             System.out.println("Enter password: ");
             anEmployee.setPassword(aScanner.nextLine());
             
-             EmployeeORM.updateEmployeeORM(anEmployee);
+             EmployeeORM.updateEmployee(anEmployee);
             System.out.println(" Employee updated Using ORM");
         }
         else if(ORMChoice==3)
@@ -2050,7 +2051,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
             
-             EmployeeORM.deleteEmployeeORM(aScanner.nextInt());
+             EmployeeORM.deleteEmployee(Employee.class,aScanner.nextInt());
             System.out.println("Author deleted using ORM");
         }
         else if(ORMChoice==4)
@@ -2062,7 +2063,7 @@ public class LCMSPresntation {
             
             System.out.println("Enter ID: ");
             int id = aScanner.nextInt();
-            anEmployee = EmployeeORM.getEmployeeORM(id);
+            anEmployee = EmployeeORM.getEmployee(aScanner.nextInt());
             
             //Runtime.getRuntime().exec("cls");
             
@@ -2070,30 +2071,34 @@ public class LCMSPresntation {
             System.out.println("ID: " + anEmployee.getId()+"\n");
             System.out.println("First Name: " + anEmployee.getFname()+"\n");
             System.out.println("Last Name: " + anEmployee.getLname()+"\n");
-            System.out.println("School: " + anEmployee.getJobtitle()+"\n");
+            System.out.println("Job title: " + anEmployee.getJobtitle()+"\n");
              // System.out.println("School: " + anEmployee.getPassword()+"\n");
-             System.out.println("School: " + anEmployee.getEmployeecode()+"\n");
+             System.out.println("Employee code: " + anEmployee.getEmployeecode()+"\n");
         }
         else if(ORMChoice==5)
         {
-            ResultSet rs=null;
-            EmployeeManager EmployeeORM = new EmployeeManager();            
-            Scanner aScanner = new Scanner(System.in);
+           List<Employee> employees =new ArrayList();
+            EmployeeManager employeeORM = new EmployeeManager();            
+            Scanner aScanner = new Scanner(System. in);
             
             
-            rs = EmployeeORM.getAllEmployee();
+            employees = (List<Employee>) employeeORM.getAllEmployees();
             
            // Runtime.getRuntime().exec("cls");
             
-            System.out.println("ResultSet of authors return using ORM\n");
+            System.out.println("ResultSet of Employees return using ORM\n");
             
-            while(rs.next()){
-            System.out.println("ID: " + rs.getInt("ID")+"\n");
-            System.out.println("Job Title: " + rs.getString("jobetitle")+"\n");
-            System.out.println("First Name: " + rs.getString("firstname")+"\n");
-            System.out.println("Last Name: " + rs.getString("lastname")+"\n");
+            for(int i=0; i<employees.size(); i++){
+            System.out.println("ID: " + employees.get(i).getId()+"\n");
+            System.out.println("Job Title: " + employees.get(i).getJobtitle()+"\n");
+            System.out.println("First Name: " + employees.get(i).getFname()+"\n");
+            System.out.println("Last Name: " + employees.get(i).getLname()+"\n");
+          //  System.out.println("Passsword: " + employees.get(i).getPassword()+"\n");
+            System.out.println("Employee Code: " + employees.get(i).getEmployeecode()+"\n");
             
-        }
+            }  
+            
+            
         }
         else if(ORMChoice==6)
         {
@@ -2142,7 +2147,7 @@ public class LCMSPresntation {
             System.out.println("Enter phone number : ");
             anCustomer.setPhonenumber(aScanner.nextLine());
             
-            CustomerORM.addCustomerORM(anCustomer);
+            CustomerORM.addCustomer(anCustomer);
             System.out.println("Customer Added Using ORM");
             
         }
@@ -2172,7 +2177,7 @@ public class LCMSPresntation {
             anCustomer.setPhonenumber(aScanner.nextLine());
             
             
-            CustomerORM.updateCustomerORM(anCustomer);
+            CustomerORM.updateCustomer(anCustomer);
             System.out.println("Customer updated Using ORM");
         }
         else if(ORMChoice==3)
@@ -2181,7 +2186,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System. in);
             System.out.println("Enter ID: ");
             
-             CustomerORM.deleteCustomerORM(aScanner.nextInt());
+             CustomerORM.deleteCustomer(Customer.class,aScanner.nextInt());
             System.out.println(" Customer deleted using ORM");
         }
         else if(ORMChoice==4)
@@ -2192,7 +2197,8 @@ public class LCMSPresntation {
             
             System.out.println("Enter ID: ");
             int id = aScanner.nextInt();
-            anCustomer = CustomerORM.getCustomerORM(id);
+           
+            anCustomer = CustomerORM.getCustomer(id);
             
             //Runtime.getRuntime().exec("cls");
             
@@ -2206,25 +2212,28 @@ public class LCMSPresntation {
         }
         else if(ORMChoice==5)
         {
-            ResultSet rs=null;
+             List<Customer> customers =new ArrayList();
             CustomerManager CustomerORM = new CustomerManager();            
             Scanner aScanner = new Scanner(System.in);
             
-            
-            rs = CustomerORM.getAllCustomer();
+              customers = CustomerORM.getAllCustomer();
+          //  rs = CustomerORM.getAllCustomer();
             
            // Runtime.getRuntime().exec("cls");
             
             System.out.println("ResultSet of authors return using ORM\n");
             
-            while(rs.next()){
-            System.out.println("ID: " + rs.getInt("ID")+"\n");
-            System.out.println("First Name: " + rs.getString("firstname")+"\n");
-            System.out.println("Last Name: " + rs.getString("lastname")+"\n");
-            System.out.println("Customer ID: " + rs.getString("customercode") +"\n");
-            System.out.println("Phonenumber: " + rs.getString("phonenumber")+"\n");
-            System.out.println("Address: " + rs.getString("address")+"\n");
-        }
+            
+             for(int i=0; i<customers.size(); i++){
+            System.out.println("ID: " + customers.get(i).getId()+"\n");
+            System.out.println("First Name: " + customers.get(i).getFname()+"\n");
+            System.out.println("Last Name: " + customers.get(i).getLname()+"\n");
+            System.out.println("Phonenumber: " + customers.get(i).getPhonenumber()+"\n");
+            System.out.println("Address: "  + customers.get(i).getAddress()+"\n");
+           System.out.println("Customer ID: "  + customers.get(i).getCustomercode()+"\n");
+           
+            }
+            
         }
         else if(ORMChoice==6)
         {

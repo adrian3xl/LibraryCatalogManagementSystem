@@ -70,7 +70,7 @@ public void addEmployee (Employee anEmployee)
         }
     }
     
-    public ResultSet getAllEmployeeJ ()
+    public ResultSet getAllEmployees ()
     {
         ResultSet rs=null;
         List<Employee> employeesList = new ArrayList<>();
