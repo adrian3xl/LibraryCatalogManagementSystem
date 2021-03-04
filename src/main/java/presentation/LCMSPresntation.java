@@ -1467,7 +1467,7 @@ public class LCMSPresntation {
             Scanner aScanner = new Scanner(System.in);
             
             
-//            Publisher.PublisherORM.getAllPublishers();
+      //     publisher = (List<Publisher>)PublisherORM.getAllPublishers();
             
            // Runtime.getRuntime().exec("cls");
             
