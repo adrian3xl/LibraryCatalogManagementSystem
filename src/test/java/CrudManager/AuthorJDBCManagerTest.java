@@ -5,6 +5,7 @@
  */
 package CrudManager;
 
+import org.junit.Ignore;
 import Domain.Author;
 import java.sql.ResultSet;
 import org.junit.After;
@@ -18,6 +19,7 @@ import static org.junit.Assert.*;
  *
  * @author Adrian
  */
+@Ignore
 public class AuthorJDBCManagerTest {
     
     public AuthorJDBCManagerTest() {
