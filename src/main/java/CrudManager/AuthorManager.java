@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
  */
 public class AuthorManager {
     
-    final static Logger logger = Logger.getLogger(AuthorManager.class); 
+   final static Logger logger = Logger.getLogger(AuthorManager.class); 
     
     public void addAuthor(Author anAuthor)
     {

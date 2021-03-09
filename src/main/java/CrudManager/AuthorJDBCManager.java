@@ -22,7 +22,7 @@ import org.apache.log4j.Logger;
  */
 public class AuthorJDBCManager {
     
-    final static Logger logger = Logger.getLogger(AuthorJDBCManager.class); 
+  //  final static Logger logger = Logger.getLogger(AuthorJDBCManager.class); 
     
     public void addAuthorJDBC(Author anAuthor)
     {
@@ -38,7 +38,7 @@ public class AuthorJDBCManager {
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
-           logger.error(ex.getMessage());
+         //  logger.error(ex.getMessage());
         }
     }
     public Author getAuthorJDBC(int authorId)
