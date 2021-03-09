@@ -12,15 +12,19 @@ import Service.ICatalogrecordService;
 import Service.Exceptions.ServiceLoadException;
 import Service.ICatalogrecordServiceJDBC;
 import java.sql.ResultSet;
+import org.apache.log4j.Logger;
 /**
  *
  * @author Adrian
  */
 public class CatalogrecordManager {
     
+      final static Logger logger = Logger.getLogger(CatalogrecordManager.class); 
+    
 public void addCatalogrecord(Catalogrecord anCatalogrecord)
     {
         try {
+             logger.info("In Business Layer addCatalogrecord(Catalogrecord catalogrecord) method");
             System.out.println("In Business Layer addCatalogrecord(Catalogrecord catalogrecord) method");
             Factory factory = new Factory();            
             ICatalogrecordService  iCatalogrecordMgr  = (ICatalogrecordService ) factory.getTheService(ICatalogrecordService .NAME);
@@ -32,12 +36,14 @@ public void addCatalogrecord(Catalogrecord anCatalogrecord)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+             logger.error(ex.getMessage());
         }
     }
     public Catalogrecord getCatalogrecord(int catalogrecordId)
     {
         Catalogrecord anCatalogrecord=new Catalogrecord();
         try {
+             logger.info("In Business Layer getCatalogrecordJDBC(int catalogrecordId) method");
             System.out.println("In Business Layer getCatalogrecordJDBC(int catalogrecordId) method");
             Factory factory = new Factory();           
             ICatalogrecordService  iCatalogrecordMgr  = (ICatalogrecordService ) factory.getTheService(ICatalogrecordService .NAME);
@@ -48,7 +54,7 @@ public void addCatalogrecord(Catalogrecord anCatalogrecord)
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            
+              logger.error(ex.getMessage());
         }
         return anCatalogrecord;
     }
@@ -56,6 +62,7 @@ public void addCatalogrecord(Catalogrecord anCatalogrecord)
     public void updateCatalogrecord(Catalogrecord anCatalogrecord)
     {
         try {
+            logger.info("In Business Layer  updateCatalogrecord (Catalogrecord anCatalogrecord) method");
             System.out.println("In Business Layer  updateCatalogrecord (Catalogrecord anCatalogrecord) method");
             Factory factory = new Factory();            
             ICatalogrecordService  iCatalogrecordMgr  = (ICatalogrecordService ) factory.getTheService(ICatalogrecordService .NAME);
@@ -67,6 +74,7 @@ public void addCatalogrecord(Catalogrecord anCatalogrecord)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+             logger.error(ex.getMessage());
         }
     }
     
@@ -75,6 +83,7 @@ public void addCatalogrecord(Catalogrecord anCatalogrecord)
         ResultSet rs=null;
         List<Catalogrecord> CatalogrecordList = new ArrayList<>();
         try {
+             logger.info("In Business Layer getAllCatalogrecord  method");
             System.out.println("In Business Layer getAllCatalogrecord  method");
             Factory factory = new Factory();
             ICatalogrecordService iCatalogrecordMgr  = (ICatalogrecordService ) factory.getTheService(ICatalogrecordService .NAME);
@@ -84,7 +93,8 @@ public void addCatalogrecord(Catalogrecord anCatalogrecord)
           System.out.println(ex.getMessage());
             
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());            
+            System.out.println(ex.getMessage()); 
+              logger.error(ex.getMessage());
         }
         return rs;
     }
@@ -93,6 +103,7 @@ public void addCatalogrecord(Catalogrecord anCatalogrecord)
     public void deleteCatalogrecord(Class<?> Catalogrecord, int catalogrecordId)
     {
         try {
+            logger.info("In Business Layer deleteCatalogrecord method");
             System.out.println("In Business Layer deleteCatalogrecord method");
             Factory factory = new Factory();
             ICatalogrecordService  iCatalogrecordMgr  = (ICatalogrecordService ) factory.getTheService(ICatalogrecordService .NAME);
@@ -104,6 +115,7 @@ public void addCatalogrecord(Catalogrecord anCatalogrecord)
         } catch (Exception ex) {
             
             System.out.println(ex.getMessage());
+              logger.error(ex.getMessage());
         }
     }
 

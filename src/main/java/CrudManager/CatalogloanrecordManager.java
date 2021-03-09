@@ -12,14 +12,19 @@ import Service.ICatalogloanrecordService;
 import Service.Exceptions.ServiceLoadException;
 import Service.ICatalogloanrecordServiceJDBC;
 import java.sql.ResultSet;
+import org.apache.log4j.Logger;
 /**
  *
  * @author Adrian
  */
 public class CatalogloanrecordManager {
+    
+     final static Logger logger = Logger.getLogger(CatalogloanrecordManager.class); 
+    
 public void addCatalogloanrecord(Catalogloanrecord anCatalogloanrecord)
     {
         try {
+             logger.info("In Business Layer addCatalogloanrecord(Catalogloanrecord catalogloanrecord) method");
             System.out.println("In Business Layer addCatalogloanrecord(Catalogloanrecord catalogloanrecord) method");
             Factory factory = new Factory();            
             ICatalogloanrecordService  iCatalogloanrecordMgr  = (ICatalogloanrecordService ) factory.getTheService(ICatalogloanrecordService .NAME);
@@ -31,12 +36,14 @@ public void addCatalogloanrecord(Catalogloanrecord anCatalogloanrecord)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+             logger.error(ex.getMessage());
         }
     }
     public Catalogloanrecord getCatalogloanrecord(int catalogloanrecordId)
     {
         Catalogloanrecord anCatalogloanrecord=new Catalogloanrecord();
         try {
+            logger.info("In Business Layer getCatalogloanrecordJDBC(int catalogloanrecordId) method");
             System.out.println("In Business Layer getCatalogloanrecordJDBC(int catalogloanrecordId) method");
             Factory factory = new Factory();           
             ICatalogloanrecordService  iCatalogloanrecordMgr  = (ICatalogloanrecordService ) factory.getTheService(ICatalogloanrecordService .NAME);
@@ -47,7 +54,7 @@ public void addCatalogloanrecord(Catalogloanrecord anCatalogloanrecord)
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            
+                   logger.error(ex.getMessage());
         }
         return anCatalogloanrecord;
     }
@@ -55,6 +62,7 @@ public void addCatalogloanrecord(Catalogloanrecord anCatalogloanrecord)
     public void updateCatalogloanrecord(Catalogloanrecord anCatalogloanrecord)
     {
         try {
+            logger.info("In Business Layer updateCatalogloanrecord (Catalogloanrecord anCatalogloanrecord) method");
             System.out.println("In Business Layer  updateCatalogloanrecord (Catalogloanrecord anCatalogloanrecord) method");
             Factory factory = new Factory();            
             ICatalogloanrecordService  iCatalogloanrecordMgr  = (ICatalogloanrecordService ) factory.getTheService(ICatalogloanrecordService .NAME);
@@ -66,6 +74,7 @@ public void addCatalogloanrecord(Catalogloanrecord anCatalogloanrecord)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+             logger.error(ex.getMessage());
         }
     }
     
@@ -74,6 +83,7 @@ public void addCatalogloanrecord(Catalogloanrecord anCatalogloanrecord)
         ResultSet rs=null;
         List<Catalogloanrecord> CatalogloanrecordList = new ArrayList<>();
         try {
+             logger.info("In Business Layer  getAllCatalogloanrecord  method");
             System.out.println("In Business Layer getAllCatalogloanrecord  method");
             Factory factory = new Factory();
             ICatalogloanrecordService iCatalogloanrecordMgr  = (ICatalogloanrecordService ) factory.getTheService(ICatalogloanrecordService .NAME);
@@ -83,7 +93,8 @@ public void addCatalogloanrecord(Catalogloanrecord anCatalogloanrecord)
           System.out.println(ex.getMessage());
             
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());            
+            System.out.println(ex.getMessage());     
+              logger.error(ex.getMessage());
         }
         return rs;
     }
@@ -92,6 +103,7 @@ public void addCatalogloanrecord(Catalogloanrecord anCatalogloanrecord)
     public void deleteCatalogloanrecord(int catalogloanrecordId)
     {
         try {
+             logger.info("In Business Layer deleteCatalogloanrecord method");
             System.out.println("In Business Layer deleteCatalogloanrecord method");
             Factory factory = new Factory();
             ICatalogloanrecordService  iCatalogloanrecordMgr  = (ICatalogloanrecordService ) factory.getTheService(ICatalogloanrecordService .NAME);
@@ -103,6 +115,7 @@ public void addCatalogloanrecord(Catalogloanrecord anCatalogloanrecord)
         } catch (Exception ex) {
             
             System.out.println(ex.getMessage());
+              logger.error(ex.getMessage());
         }
     }
 

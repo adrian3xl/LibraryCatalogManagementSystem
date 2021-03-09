@@ -1,3 +1,1 @@
-INFO main CrudManager.AuthorManager - In Business Layer addAuthor(Author author) method
-INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.29.Final
-ERROR main CrudManager.AuthorManager - Unable to build Session factory Error accessing stax stream
+INFO main CrudManager.AuthorJDBCManager - In Business Layer addAuthor(Author author) method1

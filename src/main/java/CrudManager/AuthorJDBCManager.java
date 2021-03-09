@@ -22,11 +22,12 @@ import org.apache.log4j.Logger;
  */
 public class AuthorJDBCManager {
     
-  //  final static Logger logger = Logger.getLogger(AuthorJDBCManager.class); 
+   final static Logger logger = Logger.getLogger(AuthorJDBCManager.class); 
     
     public void addAuthorJDBC(Author anAuthor)
     {
         try {
+             logger.info("In Business Layer addAuthor(Author author) method");
             System.out.println("In Business Layer addAuthor(Author author) method");
             Factory factory = new Factory();            
             IAuthorServiceJDBC iAuthorMgrJDBC = (IAuthorServiceJDBC) factory.getTheService(IAuthorServiceJDBC.NAME);
@@ -38,13 +39,14 @@ public class AuthorJDBCManager {
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
-         //  logger.error(ex.getMessage());
+          logger.error(ex.getMessage());
         }
     }
     public Author getAuthorJDBC(int authorId)
     {
         Author anAuthor=new Author();
         try {
+            logger.info("In Business Layer getAuthorJDBC(int authorId) method");
             System.out.println("In Business Layer getAuthorJDBC(int authorId) method");
             Factory factory = new Factory();           
             IAuthorServiceJDBC iAuthorMgrJDBC = (IAuthorServiceJDBC) factory.getTheService(IAuthorServiceJDBC.NAME);
@@ -55,7 +57,7 @@ public class AuthorJDBCManager {
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            
+            logger.error(ex.getMessage());
         }
         return anAuthor;
     }
@@ -63,6 +65,7 @@ public class AuthorJDBCManager {
     public void updateAuthorJDBC(Author anAuthor)
     {
         try {
+             logger.info("In Business Layer  updateAuthorJDBC(Author anAuthor) method");
             System.out.println("In Business Layer  updateAuthorJDBC(Author anAuthor) method");
             Factory factory = new Factory();            
             IAuthorServiceJDBC iAuthorMgrJDBC = (IAuthorServiceJDBC) factory.getTheService(IAuthorServiceJDBC.NAME);
@@ -74,6 +77,7 @@ public class AuthorJDBCManager {
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+           logger.error(ex.getMessage());
         }
     }
     
@@ -82,6 +86,7 @@ public class AuthorJDBCManager {
         ResultSet rs=null;
         List<Author> authorsList = new ArrayList<>();
         try {
+            logger.info("In Business Layer getAllAthors JDBC method");
             System.out.println("In Business Layer getAllAthors JDBC method");
             Factory factory = new Factory();
             IAuthorServiceJDBC iAuthorMgrJDBC = (IAuthorServiceJDBC) factory.getTheService(IAuthorServiceJDBC.NAME);
@@ -91,7 +96,8 @@ public class AuthorJDBCManager {
           System.out.println(ex.getMessage());
             
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());            
+            System.out.println(ex.getMessage());
+             logger.error(ex.getMessage());
         }
         return rs;
     }
@@ -100,6 +106,7 @@ public class AuthorJDBCManager {
     public void deleteAuthorJDBC(int authorId)
     {
         try {
+            logger.info("In Business Layer deleteAuhor JDBC method");
             System.out.println("In Business Layer deleteAuhor JDBC method");
             Factory factory = new Factory();
             IAuthorServiceJDBC iAuthorMgrJDBC = (IAuthorServiceJDBC) factory.getTheService(IAuthorServiceJDBC.NAME);
@@ -111,6 +118,7 @@ public class AuthorJDBCManager {
         } catch (Exception ex) {
             
             System.out.println(ex.getMessage());
+             logger.error(ex.getMessage());
         }
     }
 

@@ -12,15 +12,18 @@ import Service.ICatalogloanrecordService;
 import Service.Exceptions.ServiceLoadException;
 import Service.ICatalogloanrecordServiceJDBC;
 import java.sql.ResultSet;
+import org.apache.log4j.Logger;
 /**
  *
  * @author Adrian
  */
 public class CatalogloanrecordJDBCManager {
+    final static Logger logger = Logger.getLogger(CatalogloanrecordJDBCManager.class); 
     
 public void addCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
     {
         try {
+            logger.info("In Business Layer addCatalogloanrecord(Catalogloanrecord catalogloanrecord) method1");
             System.out.println("In Business Layer addCatalogloanrecord(Catalogloanrecord catalogloanrecord) method");
             Factory factory = new Factory();            
             ICatalogloanrecordServiceJDBC iCatalogloanrecordMgrJDBC = (ICatalogloanrecordServiceJDBC) factory.getTheService(ICatalogloanrecordServiceJDBC.NAME);
@@ -32,12 +35,14 @@ public void addCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+            logger.error(ex.getMessage());
         }
     }
     public Catalogloanrecord getCatalogloanrecordJDBC(int catalogloanrecordId)
     {
         Catalogloanrecord anCatalogloanrecord=new Catalogloanrecord();
         try {
+             logger.info("In Business Layer getCatalogloanrecordJDBC(int catalogloanrecordId) method");
             System.out.println("In Business Layer getCatalogloanrecordJDBC(int catalogloanrecordId) method");
             Factory factory = new Factory();           
             ICatalogloanrecordServiceJDBC iCatalogloanrecordMgrJDBC = (ICatalogloanrecordServiceJDBC) factory.getTheService(ICatalogloanrecordServiceJDBC.NAME);
@@ -48,7 +53,7 @@ public void addCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            
+             logger.error(ex.getMessage());
         }
         return anCatalogloanrecord;
     }
@@ -56,6 +61,7 @@ public void addCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
     public void updateCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
     {
         try {
+             logger.info("In Business Layer  updateCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord) method");
             System.out.println("In Business Layer  updateCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord) method");
             Factory factory = new Factory();            
             ICatalogloanrecordServiceJDBC iCatalogloanrecordMgrJDBC = (ICatalogloanrecordServiceJDBC) factory.getTheService(ICatalogloanrecordServiceJDBC.NAME);
@@ -67,6 +73,7 @@ public void addCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+            logger.error(ex.getMessage());
         }
     }
     
@@ -75,6 +82,7 @@ public void addCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
         ResultSet rs=null;
         List<Catalogloanrecord> CatalogloanrecordList = new ArrayList<>();
         try {
+             logger.info("In Business Layer getCatalogloanrecordJDBC(int catalogloanrecordId) method");
             System.out.println("In Business Layer getAllCatalogloanrecord JDBC method");
             Factory factory = new Factory();
             ICatalogloanrecordServiceJDBC iCatalogloanrecordMgrJDBC = (ICatalogloanrecordServiceJDBC) factory.getTheService(ICatalogloanrecordServiceJDBC.NAME);
@@ -84,7 +92,8 @@ public void addCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
           System.out.println(ex.getMessage());
             
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());            
+            System.out.println(ex.getMessage()); 
+             logger.error(ex.getMessage());
         }
         return rs;
     }
@@ -93,6 +102,7 @@ public void addCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
     public void deleteCatalogloanrecordJDBC(int catalogloanrecordId)
     {
         try {
+            logger.info("In Business Layer deleteCatalogloanrecord JDBC method");
             System.out.println("In Business Layer deleteCatalogloanrecord JDBC method");
             Factory factory = new Factory();
             ICatalogloanrecordServiceJDBC iCatalogloanrecordMgrJDBC = (ICatalogloanrecordServiceJDBC) factory.getTheService(ICatalogloanrecordServiceJDBC.NAME);
@@ -104,6 +114,7 @@ public void addCatalogloanrecordJDBC(Catalogloanrecord anCatalogloanrecord)
         } catch (Exception ex) {
             
             System.out.println(ex.getMessage());
+            logger.error(ex.getMessage());
         }
     }
 

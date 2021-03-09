@@ -33,6 +33,7 @@ public class AuthorManager {
         } catch (ServiceLoadException ex) {
          
            System.out.print(ex.getMessage());
+         
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
@@ -43,6 +44,7 @@ public class AuthorManager {
     {
         Author anAuthor=new Author();
         try {
+            logger.info("In Business Layer getAuthor(int authorId) method");
             System.out.println("In Business Layer getAuthor(int authorId) method");
             Factory factory = new Factory();           
             IAuthorService iAuthorMgr = (IAuthorService) factory.getTheService(IAuthorService.NAME);
@@ -53,7 +55,7 @@ public class AuthorManager {
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            
+             logger.error(ex.getMessage());
         }
         return anAuthor;
     }
@@ -61,6 +63,7 @@ public class AuthorManager {
     public void updateAuthor(Author anAuthor)
     {
         try {
+            logger.info("In Business Layer updateAuthor(Author anAuthor) method");
             System.out.println("In Business Layer updateAuthor(Author anAuthor) method");
             Factory factory = new Factory();            
             IAuthorService iAuthorMgr = (IAuthorService) factory.getTheService(IAuthorService.NAME);
@@ -69,9 +72,11 @@ public class AuthorManager {
         } catch (ServiceLoadException ex) {
           
            System.out.println(ex.getMessage()); 
+          
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+           logger.error(ex.getMessage());
         }
     }
     
@@ -79,6 +84,7 @@ public class AuthorManager {
     {
         List<Author> authorsList = new ArrayList<>();
         try {
+             logger.info("In Business Layer getAllAthors method");
             System.out.println("In Business Layer getAllAthors method");
             Factory factory = new Factory();
             IAuthorService iAuthorMgr = (IAuthorService) factory.getTheService(IAuthorService.NAME);
@@ -89,7 +95,7 @@ public class AuthorManager {
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            
+             logger.error(ex.getMessage());
         }
         return authorsList;
     }
@@ -98,6 +104,7 @@ public class AuthorManager {
     public void deleteAuthor(Class<?> Author, int authorId)
     {
         try {
+             logger.info("In Business Layer deleteAuhor method");
             System.out.println("In Business Layer deleteAuhor method");
             Factory factory = new Factory();
             IAuthorService iAuthorMgr = (IAuthorService) factory.getTheService(IAuthorService.NAME);
@@ -109,6 +116,7 @@ public class AuthorManager {
         } catch (Exception ex) {
             
             System.out.println(ex.getMessage());
+              logger.error(ex.getMessage());
         }
     }
 
