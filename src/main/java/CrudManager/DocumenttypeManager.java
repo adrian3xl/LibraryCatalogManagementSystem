@@ -12,15 +12,17 @@ import Service.IDocumenttypeService;
 import Service.Exceptions.ServiceLoadException;
 import Service.IDocumenttypeServiceJDBC;
 import java.sql.ResultSet;
+import org.apache.log4j.Logger;
 /**
  *
  * @author Adrian
  */
 public class DocumenttypeManager {
-    
+     final static Logger logger = Logger.getLogger(DocumenttypeManager.class); 
 public void addDocumenttype (Documenttype anDocumenttype)
     {
         try {
+            logger.info("In Business Layer addDocumenttype(Documenttype documenttype) method");
             System.out.println("In Business Layer addDocumenttype(Documenttype documenttype) method");
             Factory factory = new Factory();            
             IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
@@ -32,12 +34,14 @@ public void addDocumenttype (Documenttype anDocumenttype)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+           logger.error(ex.getMessage());
         }
     }
     public Documenttype getDocumenttype (int documenttypeId)
     {
         Documenttype anDocumenttype=new Documenttype();
         try {
+            logger.info("In Business Layer getDocumenttype (int documenttypeId) method");
             System.out.println("In Business Layer getDocumenttype (int documenttypeId) method");
             Factory factory = new Factory();           
             IDocumenttypeService iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
@@ -48,7 +52,7 @@ public void addDocumenttype (Documenttype anDocumenttype)
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            
+              logger.error(ex.getMessage());
         }
         return anDocumenttype;
     }
@@ -56,6 +60,7 @@ public void addDocumenttype (Documenttype anDocumenttype)
     public void updateDocumenttype (Documenttype anDocumenttype)
     {
         try {
+            logger.info("In Business Layer  updateDocumenttype (Documenttype anDocumenttype) method");
             System.out.println("In Business Layer  updateDocumenttype (Documenttype anDocumenttype) method");
             Factory factory = new Factory();            
             IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
@@ -67,6 +72,7 @@ public void addDocumenttype (Documenttype anDocumenttype)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+             logger.error(ex.getMessage());
         }
     }
     
@@ -75,6 +81,7 @@ public void addDocumenttype (Documenttype anDocumenttype)
         ResultSet rs=null;
         List<Documenttype> documenttypesList = new ArrayList<>();
         try {
+            logger.info("In Business Layer getAllAthors   method");
             System.out.println("In Business Layer getAllAthors   method");
             Factory factory = new Factory();
             IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
@@ -84,7 +91,8 @@ public void addDocumenttype (Documenttype anDocumenttype)
           System.out.println(ex.getMessage());
             
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());            
+            System.out.println(ex.getMessage());    
+              logger.error(ex.getMessage());
         }
         return rs;
     }
@@ -93,6 +101,7 @@ public void addDocumenttype (Documenttype anDocumenttype)
     public void deleteDocumenttype(Class<?> Documenttype, int documenttypeId)
     {
         try {
+            logger.info("In Business Layer deleteAuhor   method");
             System.out.println("In Business Layer deleteAuhor   method");
             Factory factory = new Factory();
             IDocumenttypeService  iDocumenttypeMgr  = (IDocumenttypeService ) factory.getTheService(IDocumenttypeService .NAME);
@@ -104,6 +113,7 @@ public void addDocumenttype (Documenttype anDocumenttype)
         } catch (Exception ex) {
             
             System.out.println(ex.getMessage());
+              logger.error(ex.getMessage());
         }
     }
 

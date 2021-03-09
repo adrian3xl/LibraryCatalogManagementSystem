@@ -12,15 +12,17 @@ import Service.ICustomerService;
 import Service.Exceptions.ServiceLoadException;
 import Service.ICustomerServiceJDBC;
 import java.sql.ResultSet;
+import org.apache.log4j.Logger;
 /**
  *
  * @author Adrian
  */
 public class CustomerManager {
-    
+     final static Logger logger = Logger.getLogger(CustomerManager.class); 
 public void addCustomer(Customer anCustomer)
     {
         try {
+            logger.info("In Business Layer addCustomer(Customer customer) method");
             System.out.println("In Business Layer addCustomer(Customer customer) method");
             Factory factory = new Factory();            
             ICustomerService iCustomerMgr = (ICustomerService) factory.getTheService(ICustomerService.NAME);
@@ -32,12 +34,14 @@ public void addCustomer(Customer anCustomer)
         } catch (Exception ex) {
             
             System.out.print(ex.getMessage());
+             logger.error(ex.getMessage());
         }
     }
     public Customer getCustomer(int customerId)
     {
         Customer anCustomer=new Customer();
         try {
+            logger.info("In Business Layer getCustomer(int customerId) method");
             System.out.println("In Business Layer getCustomer(int customerId) method");
             Factory factory = new Factory();           
             ICustomerService iCustomerMgr = (ICustomerService) factory.getTheService(ICustomerService.NAME);
@@ -48,7 +52,7 @@ public void addCustomer(Customer anCustomer)
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            
+             logger.error(ex.getMessage());
         }
         return anCustomer;
     }
@@ -56,6 +60,7 @@ public void addCustomer(Customer anCustomer)
     public void updateCustomer(Customer anCustomer)
     {
         try {
+            logger.info("In Business Layer updateCustomer(Customer anCustomer) method");
             System.out.println("In Business Layer updateCustomer(Customer anCustomer) method");
             Factory factory = new Factory();            
             ICustomerService iCustomerMgr = (ICustomerService) factory.getTheService(ICustomerService.NAME);
@@ -67,6 +72,7 @@ public void addCustomer(Customer anCustomer)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+            logger.error(ex.getMessage());
         }
     }
     
@@ -74,6 +80,7 @@ public void addCustomer(Customer anCustomer)
     {
         List<Customer> customerList = new ArrayList<>();
         try {
+            logger.info("In Business Layer getAllCustomer method");
             System.out.println("In Business Layer getAllCustomer method");
             Factory factory = new Factory();
             ICustomerService iCustomerMgr = (ICustomerService) factory.getTheService(ICustomerService.NAME);
@@ -84,6 +91,7 @@ public void addCustomer(Customer anCustomer)
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
+             logger.error(ex.getMessage());
             
         }
         return customerList;
@@ -93,6 +101,7 @@ public void addCustomer(Customer anCustomer)
     public void deleteCustomer(Class<?> Customer, int customerId)
     {
         try {
+            logger.info("In Business Layer deleteCustomer method");
             System.out.println("In Business Layer deleteCustomer method");
             Factory factory = new Factory();
             ICustomerService iCustomerMgr = (ICustomerService) factory.getTheService(ICustomerService.NAME);
@@ -104,6 +113,7 @@ public void addCustomer(Customer anCustomer)
         } catch (Exception ex) {
             
             System.out.println(ex.getMessage());
+             logger.error(ex.getMessage());
         }
     }
 

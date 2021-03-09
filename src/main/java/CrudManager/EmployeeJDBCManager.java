@@ -12,15 +12,17 @@ import Service.IEmployeeService;
 import Service.Exceptions.ServiceLoadException;
 import Service.IEmployeeServiceJDBC;
 import java.sql.ResultSet;
+import org.apache.log4j.Logger;
 /**
  *
  * @author Adrian
  */
 public class EmployeeJDBCManager {
-    
+     final static Logger logger = Logger.getLogger(EmployeeManager.class); 
 public void addEmployeeJDBC(Employee anEmployee)
     {
         try {
+            logger.info("In Business Layer addEmployee(Employee employee) method");
             System.out.println("In Business Layer addEmployee(Employee employee) method");
             Factory factory = new Factory();            
             IEmployeeServiceJDBC iEmployeeMgrJDBC = (IEmployeeServiceJDBC) factory.getTheService(IEmployeeServiceJDBC.NAME);
@@ -32,12 +34,14 @@ public void addEmployeeJDBC(Employee anEmployee)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+           logger.error(ex.getMessage());
         }
     }
     public Employee getEmployeeJDBC(int employeeId)
     {
         Employee anEmployee=new Employee();
         try {
+            logger.info("In Business Layer getEmployeeJDBC(int employeeId) method");
             System.out.println("In Business Layer getEmployeeJDBC(int employeeId) method");
             Factory factory = new Factory();           
             IEmployeeServiceJDBC iEmployeeMgrJDBC = (IEmployeeServiceJDBC) factory.getTheService(IEmployeeServiceJDBC.NAME);
@@ -48,6 +52,7 @@ public void addEmployeeJDBC(Employee anEmployee)
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
+             logger.error(ex.getMessage());
             
         }
         return anEmployee;
@@ -56,6 +61,7 @@ public void addEmployeeJDBC(Employee anEmployee)
     public void updateEmployeeJDBC(Employee anEmployee)
     {
         try {
+            logger.info("In Business Layer  updateEmployeeJDBC(Employee anEmployee) method");
             System.out.println("In Business Layer  updateEmployeeJDBC(Employee anEmployee) method");
             Factory factory = new Factory();            
             IEmployeeServiceJDBC iEmployeeMgrJDBC = (IEmployeeServiceJDBC) factory.getTheService(IEmployeeServiceJDBC.NAME);
@@ -67,6 +73,7 @@ public void addEmployeeJDBC(Employee anEmployee)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+            logger.error(ex.getMessage());
         }
     }
     
@@ -75,6 +82,7 @@ public void addEmployeeJDBC(Employee anEmployee)
         ResultSet rs=null;
         List<Employee> employeesList = new ArrayList<>();
         try {
+            logger.info("In Business Layer getAllAthors JDBC method");
             System.out.println("In Business Layer getAllAthors JDBC method");
             Factory factory = new Factory();
             IEmployeeServiceJDBC iEmployeeMgrJDBC = (IEmployeeServiceJDBC) factory.getTheService(IEmployeeServiceJDBC.NAME);
@@ -84,7 +92,8 @@ public void addEmployeeJDBC(Employee anEmployee)
           System.out.println(ex.getMessage());
             
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());            
+            System.out.println(ex.getMessage());    
+         logger.error(ex.getMessage());
         }
         return rs;
     }
@@ -93,6 +102,7 @@ public void addEmployeeJDBC(Employee anEmployee)
     public void deleteEmployeeJDBC(int employeeId)
     {
         try {
+            logger.info("In Business Layer deleteAuhor JDBC method");
             System.out.println("In Business Layer deleteAuhor JDBC method");
             Factory factory = new Factory();
             IEmployeeServiceJDBC iEmployeeMgrJDBC = (IEmployeeServiceJDBC) factory.getTheService(IEmployeeServiceJDBC.NAME);
@@ -104,6 +114,7 @@ public void addEmployeeJDBC(Employee anEmployee)
         } catch (Exception ex) {
             
             System.out.println(ex.getMessage());
+            logger.error(ex.getMessage());
         }
     }
 

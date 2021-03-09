@@ -12,15 +12,18 @@ import Service.IDocumenttypeService;
 import Service.Exceptions.ServiceLoadException;
 import Service.IDocumenttypeServiceJDBC;
 import java.sql.ResultSet;
+import org.apache.log4j.Logger;
 /**
  *
  * @author Adrian
  */
 public class DocumenttypeJDBCManager {
-    
+     final static Logger logger = Logger.getLogger(CustomerManager.class); 
 public void addDocumenttypeJDBC(Documenttype anDocumenttype)
     {
         try {
+            logger.info("In Business Layer addDocumenttype(Documenttype documenttype) method");
+            logger.info("In Business Layer addDocumenttype(Documenttype documenttype) method");
             System.out.println("In Business Layer addDocumenttype(Documenttype documenttype) method");
             Factory factory = new Factory();            
             IDocumenttypeServiceJDBC iDocumenttypeMgrJDBC = (IDocumenttypeServiceJDBC) factory.getTheService(IDocumenttypeServiceJDBC.NAME);
@@ -32,12 +35,14 @@ public void addDocumenttypeJDBC(Documenttype anDocumenttype)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+           logger.error(ex.getMessage()); 
         }
     }
     public Documenttype getDocumenttypeJDBC(int documenttypeId)
     {
         Documenttype anDocumenttype=new Documenttype();
         try {
+            logger.info("In Business Layer getDocumenttypeJDBC(int documenttypeId) method");
             System.out.println("In Business Layer getDocumenttypeJDBC(int documenttypeId) method");
             Factory factory = new Factory();           
             IDocumenttypeServiceJDBC iDocumenttypeMgrJDBC = (IDocumenttypeServiceJDBC) factory.getTheService(IDocumenttypeServiceJDBC.NAME);
@@ -48,7 +53,7 @@ public void addDocumenttypeJDBC(Documenttype anDocumenttype)
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            
+              logger.error(ex.getMessage()); 
         }
         return anDocumenttype;
     }
@@ -56,6 +61,7 @@ public void addDocumenttypeJDBC(Documenttype anDocumenttype)
     public void updateDocumenttypeJDBC(Documenttype anDocumenttype)
     {
         try {
+            logger.info("In Business Layer  updateDocumenttypeJDBC(Documenttype anDocumenttype) method");
             System.out.println("In Business Layer  updateDocumenttypeJDBC(Documenttype anDocumenttype) method");
             Factory factory = new Factory();            
             IDocumenttypeServiceJDBC iDocumenttypeMgrJDBC = (IDocumenttypeServiceJDBC) factory.getTheService(IDocumenttypeServiceJDBC.NAME);
@@ -67,6 +73,7 @@ public void addDocumenttypeJDBC(Documenttype anDocumenttype)
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+             logger.error(ex.getMessage()); 
         }
     }
     
@@ -75,6 +82,7 @@ public void addDocumenttypeJDBC(Documenttype anDocumenttype)
         ResultSet rs=null;
         List<Documenttype> documenttypesList = new ArrayList<>();
         try {
+            logger.info("In Business Layer getAllAthors JDBC method");
             System.out.println("In Business Layer getAllAthors JDBC method");
             Factory factory = new Factory();
             IDocumenttypeServiceJDBC iDocumenttypeMgrJDBC = (IDocumenttypeServiceJDBC) factory.getTheService(IDocumenttypeServiceJDBC.NAME);
@@ -84,7 +92,8 @@ public void addDocumenttypeJDBC(Documenttype anDocumenttype)
           System.out.println(ex.getMessage());
             
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());            
+            System.out.println(ex.getMessage());  
+              logger.error(ex.getMessage()); 
         }
         return rs;
     }
@@ -93,6 +102,7 @@ public void addDocumenttypeJDBC(Documenttype anDocumenttype)
     public void deleteDocumenttypeJDBC(int documenttypeId)
     {
         try {
+            logger.info("In Business Layer deleteAuhor JDBC method");
             System.out.println("In Business Layer deleteAuhor JDBC method");
             Factory factory = new Factory();
             IDocumenttypeServiceJDBC iDocumenttypeMgrJDBC = (IDocumenttypeServiceJDBC) factory.getTheService(IDocumenttypeServiceJDBC.NAME);
@@ -104,6 +114,7 @@ public void addDocumenttypeJDBC(Documenttype anDocumenttype)
         } catch (Exception ex) {
             
             System.out.println(ex.getMessage());
+              logger.error(ex.getMessage()); 
         }
     }
 
