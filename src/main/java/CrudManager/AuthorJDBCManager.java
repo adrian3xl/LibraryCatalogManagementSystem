@@ -13,6 +13,8 @@ import Service.IAuthorService;
 import Service.Exceptions.ServiceLoadException;
 import Service.IAuthorServiceJDBC;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -20,7 +22,7 @@ import java.sql.ResultSet;
  */
 public class AuthorJDBCManager {
     
-   
+    final static Logger logger = Logger.getLogger(AuthorJDBCManager.class); 
     
     public void addAuthorJDBC(Author anAuthor)
     {
@@ -36,6 +38,7 @@ public class AuthorJDBCManager {
         } catch (Exception ex) {
             
            System.out.println(ex.getMessage()); 
+           logger.error(ex.getMessage());
         }
     }
     public Author getAuthorJDBC(int authorId)

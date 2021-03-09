@@ -11,6 +11,7 @@ import java.util.List;
 import Service.Factory;
 import Service.IAuthorService;
 import Service.Exceptions.ServiceLoadException;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -18,7 +19,7 @@ import Service.Exceptions.ServiceLoadException;
  */
 public class AuthorManager {
     
-   
+    final static Logger logger = Logger.getLogger(AuthorManager.class); 
     
     public void addAuthor(Author anAuthor)
     {
@@ -33,7 +34,8 @@ public class AuthorManager {
            System.out.print(ex.getMessage());
         } catch (Exception ex) {
             
-            System.out.print(ex.getMessage());
+           System.out.println(ex.getMessage()); 
+           logger.error(ex.getMessage());
         }
     }
     public Author getAuthor(int authorId)

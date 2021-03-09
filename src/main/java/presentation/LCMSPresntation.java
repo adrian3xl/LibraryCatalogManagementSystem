@@ -78,7 +78,7 @@ public class LCMSPresntation {
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
                }catch (SQLException ex) {
-                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                  
                    logger.error(ex.getMessage());
                }
            }
