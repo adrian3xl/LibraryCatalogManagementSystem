@@ -24,6 +24,7 @@ public class AuthorManager {
     public void addAuthor(Author anAuthor)
     {
         try {
+            logger.info("In Business Layer addAuthor(Author author) method");
             System.out.println("In Business Layer addAuthor(Author author) method");
             Factory factory = new Factory();            
             IAuthorService iAuthorMgr = (IAuthorService) factory.getTheService(IAuthorService.NAME);
