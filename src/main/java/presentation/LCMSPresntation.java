@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package presentation;
-
+//106 to 135
 import Domain.Author;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 import CrudManager.AuthorJDBCManager;
 import CrudManager.AuthorManager;
 import CrudManager.CatalogloanrecordJDBCManager;
@@ -38,6 +38,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
+
 
 /**
  *
@@ -45,6 +48,8 @@ import java.util.List;
  */
 public class LCMSPresntation {
 
+    final static Logger logger = Logger.getLogger(LCMSPresntation.class); 
+    
     public static void main(String[] args)
     {
         Scanner scan = new Scanner(System.in);
@@ -61,7 +66,8 @@ public class LCMSPresntation {
                } catch (IOException ex) {
                    System.out.println(ex.getMessage());
                } catch (SQLException ex) {
-                   Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                  // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
            else if(choice==2)
@@ -72,7 +78,8 @@ public class LCMSPresntation {
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
                }catch (SQLException ex) {
-                   Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
            else if(choice==3)
@@ -101,7 +108,8 @@ public class LCMSPresntation {
                } catch (IOException ex) {
                    System.out.println(ex.getMessage());
                } catch (SQLException ex) {
-                   Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
            else if(choice==2)
@@ -111,6 +119,9 @@ public class LCMSPresntation {
                    PublisherJDBCMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
             else if(choice==3)
@@ -120,6 +131,9 @@ public class LCMSPresntation {
                    GenreJDBCMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                else if(choice==4)
@@ -129,6 +143,9 @@ public class LCMSPresntation {
                    DoctypeJDBCMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                   else if(choice==5)
@@ -138,6 +155,9 @@ public class LCMSPresntation {
                   CatalogrecordJDBCMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                      else if(choice==6)
@@ -147,6 +167,9 @@ public class LCMSPresntation {
                  CatalogloanJDBCMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                         else if(choice==7)
@@ -156,6 +179,9 @@ public class LCMSPresntation {
                    EmployeeJDBCMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                            else if(choice==8)
@@ -165,6 +191,9 @@ public class LCMSPresntation {
                    CustomerJDBCMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                            
@@ -1184,7 +1213,8 @@ public class LCMSPresntation {
                } catch (IOException ex) {
                    System.out.println(ex.getMessage());
                } catch (SQLException ex) {
-                   Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
            else if(choice==2)
@@ -1194,6 +1224,9 @@ public class LCMSPresntation {
                    PublisherORMMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
             else if(choice==3)
@@ -1203,6 +1236,9 @@ public class LCMSPresntation {
                    GenreORMMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                else if(choice==4)
@@ -1212,6 +1248,9 @@ public class LCMSPresntation {
                    DoctypeORMMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                   else if(choice==5)
@@ -1221,6 +1260,9 @@ public class LCMSPresntation {
                   CatalogrecordORMMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                      else if(choice==6)
@@ -1230,6 +1272,9 @@ public class LCMSPresntation {
                  CatalogloanORMMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                         else if(choice==7)
@@ -1239,6 +1284,9 @@ public class LCMSPresntation {
                    EmployeeORMMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                            else if(choice==8)
@@ -1248,6 +1296,9 @@ public class LCMSPresntation {
                    CustomerORMMenu();
                } catch (IOException ex) {
                   System.out.println(ex.getMessage());
+               }catch (SQLException ex) {
+                   // Logger.getLogger(LCMSPresntation.class.getName()).log(Level.SEVERE, null, ex);
+                   logger.error(ex.getMessage());
                }
            }
                            
@@ -1296,7 +1347,7 @@ public class LCMSPresntation {
             anAuthor.setAuthorCode(aScanner.nextLine());
             
             authORM.addAuthor(anAuthor);
-            System.out.println("Author Added Using ORM");
+            System.out.println(" Author Added Using ORM");
             
         }
         else if(ORMChoice==2)
