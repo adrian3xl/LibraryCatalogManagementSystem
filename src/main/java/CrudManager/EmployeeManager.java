@@ -119,6 +119,10 @@ public void addEmployee (Employee anEmployee)
 
     public EmployeeManager() {
     }
+
+    public Boolean validateEmpCodeAndPwd(Employee employee) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

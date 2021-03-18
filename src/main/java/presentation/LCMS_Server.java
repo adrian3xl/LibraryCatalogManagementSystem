@@ -5,7 +5,7 @@
  */
 package presentation;
 
-import CrudManager.ConnectionManager;
+//import CrudManager.ConnectionManager;
 import CrudManager.EmployeeManager;
 import Domain.Employee;
 import java.io.BufferedReader;
@@ -128,7 +128,7 @@ public class LCMS_Server  implements Runnable {
                         {
                                               
                            EmployeeMgr=new EmployeeManager();
-                           Boolean exist = EmployeeMgr.validateUsernameAndPwd(employee);
+                           Boolean exist = EmployeeMgr.validateEmpCodeAndPwd(employee);
                                                       
                            if(exist==true)
                            {
