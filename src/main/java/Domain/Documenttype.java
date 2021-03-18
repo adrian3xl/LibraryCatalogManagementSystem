@@ -21,7 +21,7 @@ import javax.persistence.Table;
 
 @Entity	
 @Table(name="documenttype")
-public class Documenttype {
+public class Documenttype implements Serializable {
   
       @Id	
     @Column(name="name")

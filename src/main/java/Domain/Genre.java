@@ -22,7 +22,7 @@ import javax.persistence.Table;
 @Entity	
 @Table(name="genre")	
 
-public class Genre {	
+public class Genre implements Serializable {	
 
      @Id	
     @Column(name="name")	

@@ -26,7 +26,7 @@ import javax.persistence.Table;
 
 @Entity	
 @Table(name="catalogloanrecord")
-public class Catalogloanrecord {	
+public class Catalogloanrecord implements Serializable{	
 
      @Id	
     @Column(name="loancode")
