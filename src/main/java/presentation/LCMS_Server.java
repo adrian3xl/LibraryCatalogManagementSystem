@@ -41,7 +41,7 @@ public class LCMS_Server  implements Runnable {
     private EmployeeManager EmployeeMgr;  
     
        
-    public LCMS_Server()
+    public LCMS_Server(int port)
     {     
         
     }
@@ -176,6 +176,10 @@ public class LCMS_Server  implements Runnable {
     }
     
     
-    
+    public static void main(String args[]){
+        
+        LCMS_Server lcms_server= new LCMS_Server(49999);
+       lcms_server.start();
+    }
     
 }
