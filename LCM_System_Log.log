@@ -1,1 +1,38 @@
 INFO main CrudManager.AuthorJDBCManager - In Business Layer addAuthor(Author author) method1
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.29.Final
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Error accessing stax stream
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.29.Final
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Error accessing stax stream
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.29.Final
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Error accessing stax stream
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.29.Final
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Error accessing stax stream
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Error accessing stax stream
+INFO main CrudManager.AuthorManager - In Business Layer addAuthor(Author author) method
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Error accessing stax stream
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Error accessing stax stream
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Error accessing stax stream
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Error accessing stax stream
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Could not locate cfg.xml resource [C:\Users\Adrian\Documents\NetBeansProjects\LibraryCatalogManagementSystem\src\main\resources\hibernate.cfg.xml]
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Could not locate cfg.xml resource [C:\Users\Adrian\Documents\NetBeansProjects\LibraryCatalogManagementSystem\src\main\resources\hibernate.cfg.xml]
+INFO main CrudManager.AuthorManager - In Business Layer getAllAthors method
+INFO main org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+ERROR main CrudManager.AuthorManager - Unable to build Session factory Error accessing stax stream

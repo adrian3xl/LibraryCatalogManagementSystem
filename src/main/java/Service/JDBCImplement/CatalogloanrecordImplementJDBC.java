@@ -6,6 +6,9 @@
 package Service.JDBCImplement;
 
 import Domain.Catalogloanrecord;
+import Domain.Catalogrecord;
+import Domain.Customer;
+import Domain.Employee;
 import Service.ICatalogloanrecordServiceJDBC;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -68,11 +71,11 @@ public class CatalogloanrecordImplementJDBC extends JDBCMainConfiguration implem
         Catalogloanrecord catalogloanrecord=new Catalogloanrecord();
         catalogloanrecord.setId(catalogloanrecordID);
         catalogloanrecord.setLoancode(rs.getString("loancode"));
-       // catalogloanrecord.setCustomer(rs.getString(" customer_id "));
+        catalogloanrecord.setCustomer(rs.getObject(" customer_id ",Customer.class));
     //   catalogloanrecord.setLoandate(rs.getString("loandate "));
-      // catalogloanrecord.setEmployee(rs.getString("employee_id "));   
+       catalogloanrecord.setEmployee(rs.getObject("employee_id ",Employee.class));   
       // catalogloanrecord.setRecieveddate(rs.getString("recieveddate ")); 
-      // catalogloanrecord.setCatalogrecord(rs.getString("Catalogrecord_id "));
+       catalogloanrecord.setCatalogrecord(rs.getObject("Catalogrecord_id ",Catalogrecord.class));
        
         return catalogloanrecord;
         

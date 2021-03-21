@@ -5,7 +5,9 @@
  */
 package Service.JDBCImplement;
 
+import Domain.Author;
 import Domain.Catalogrecord;
+import Domain.Publisher;
 import Service.ICatalogrecordServiceJDBC;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -70,9 +72,9 @@ public class CatalogrecordImplementJDBC extends JDBCMainConfiguration implements
         Catalogrecord catalogrecord=new Catalogrecord();
         catalogrecord.setId(catalogrecordID);
         catalogrecord.setCatalogcode(rs.getString("catalogrecord_id"));
-      //  catalogrecord.setAuthor(rs.(" author_id "));
-     //  catalogrecord.setPublisher(rs.getString("publisher_id "));
-      // cataloglrecord.setDatereleased(rs.getDate("datereleased "));   
+        catalogrecord.setAuthor(rs.getObject("author_id", Author.class));
+          catalogrecord.setPublisher(rs.getObject("publisher_id ", Publisher.class));
+      //cataloglrecord.setDatereleased(rs.getDate("datereleased "));   
        catalogrecord.setConditionstatement(rs.getString("conditionstatement ")); 
        catalogrecord.setCatalogcode(rs.getString("catalogcode "));
        
