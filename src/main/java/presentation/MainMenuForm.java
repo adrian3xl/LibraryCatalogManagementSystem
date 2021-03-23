@@ -5,6 +5,7 @@
  */
 package presentation;
 
+
 /**
  *
  * @author Adrian
@@ -75,6 +76,7 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mainformimage.jpg"))); // NOI18N
         jLabel1.setText("Image");
 
         jMenu3.setText("Manage Records");
@@ -300,13 +302,11 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
         );
 
         pack();
