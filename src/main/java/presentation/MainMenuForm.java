@@ -84,6 +84,11 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
         jMenu1.setText("Manage Authors");
 
         jMenuItem6.setText("View");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem6);
 
         jMenuItem7.setText("Add");
@@ -377,6 +382,15 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
     private void jMenuItem32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem32ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem32ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        TblForm tblform = new TblForm();
+        ResultSetTblModel tblModel= new ResultSetTblModel();
+        jdpl.add(tblform);
+        this.validate();
+        this.repaint();
+                
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
