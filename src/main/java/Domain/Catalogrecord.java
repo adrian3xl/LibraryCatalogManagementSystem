@@ -78,7 +78,7 @@ public Catalogrecord(String title, Date datereleased,String conditionstatement,S
     
     @ManyToOne
     @JoinColumn(name = "author_id")
-    public Author getAuthor() {
+    public int getAuthor() {
         return author;
     }
  
@@ -90,7 +90,7 @@ public Catalogrecord(String title, Date datereleased,String conditionstatement,S
 
     @ManyToOne
     @JoinColumn(name = "publisher_id")
-    public Publisher getPublisher() {
+    public int getPublisher() {
         return publisher;
     }
     
@@ -145,11 +145,11 @@ public Catalogrecord(String title, Date datereleased,String conditionstatement,S
         this.documenttype = documenttype;
     }
 
-    public void setAuthor(Author author) {
+    public void setAuthor(int author) {
         this.author = author;
     }
 
-    public void setPublisher(Publisher publisher) {
+    public void setPublisher(int publisher) {
         this.publisher = publisher;
     }
     
