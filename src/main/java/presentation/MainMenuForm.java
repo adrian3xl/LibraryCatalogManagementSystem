@@ -386,7 +386,7 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         TblForm tblform = new TblForm();
         ResultSetTblModel tblModel= new ResultSetTblModel();
-        jdpl.add(tblform);
+       // jdpl.add(tblform);
         this.validate();
         this.repaint();
                 
