@@ -42,16 +42,16 @@ public class Catalogloanrecord implements Serializable{
     
     private Catalogrecord catalogrecord;	
     
-    private Customer customer;	
+    private int customer;	
    	
-    private Employee employee;	
+    private int employee;	
 
     
     public Catalogloanrecord(){	
     }
     
     
-    public Catalogloanrecord( Employee employee, Customer customer,Catalogrecord catalogrecord,Date recieveddate,Date loandate, String loancode      ){	
+    public Catalogloanrecord( int employee, int customer,Catalogrecord catalogrecord,Date recieveddate,Date loandate, String loancode      ){	
   
         this.catalogrecord=catalogrecord;
         this.customer=customer;
@@ -68,13 +68,13 @@ public class Catalogloanrecord implements Serializable{
     }
 @ManyToOne
     @JoinColumn(name = "customer_id")
-    public Customer getCustomer() {
+    public int getCustomer() {
         return customer;
     }
  
     @ManyToOne
     @JoinColumn(name = "employee_id")
-    public Employee getEmployee() {
+    public int getEmployee() {
         return employee;
     }
 
@@ -116,11 +116,11 @@ public class Catalogloanrecord implements Serializable{
         this.catalogrecord = catalogrecord;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(int customer) {
         this.customer = customer;
     }
 
-    public void setEmployee(Employee employee) {
+    public void setEmployee(int employee) {
         this.employee = employee;
     }
     

@@ -48,8 +48,8 @@ public class Catalogrecord implements Serializable {
 
      private Genre genre;
     private Documenttype documenttype;
-     private Author author;
-     private Publisher publisher;
+     private int author;
+     private int publisher;
     
      
      @OneToMany(mappedBy = "catalogrecord", cascade = CascadeType.ALL)
@@ -59,7 +59,7 @@ public class Catalogrecord implements Serializable {
     public Catalogrecord(){	
     }	
 
-public Catalogrecord(String title, Date datereleased,String conditionstatement,String catalogcode,Genre genre,Documenttype documenttype,Author author,Publisher publisher){
+public Catalogrecord(String title, Date datereleased,String conditionstatement,String catalogcode,Genre genre,Documenttype documenttype,int author,int publisher){
     this.title=title;
     this.author=author;
     this.publisher=publisher;
