@@ -19,12 +19,12 @@ import java.sql.ResultSet;
 
 /**
  *
- * @author KRichards
+ * @author AB
  */
 public class AuthorImplement extends HibernateMainConfig implements IAuthorService {
      
     @Override
-    public void addAuthor(Author author) throws Exception  //method for adding book
+    public void addAuthor(Author author) throws Exception  
      {
          Session session = this.getSession();
          Transaction transact=null;

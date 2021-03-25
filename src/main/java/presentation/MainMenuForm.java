@@ -28,7 +28,7 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jdp1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -75,9 +75,18 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
         jMenuItem28 = new javax.swing.JMenuItem();
 
         setClosable(true);
+        setName("mainform"); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Artboard 1.png"))); // NOI18N
-        jLabel1.setText("Image");
+        javax.swing.GroupLayout jdp1Layout = new javax.swing.GroupLayout(jdp1);
+        jdp1.setLayout(jdp1Layout);
+        jdp1Layout.setHorizontalGroup(
+            jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 889, Short.MAX_VALUE)
+        );
+        jdp1Layout.setVerticalGroup(
+            jdp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 447, Short.MAX_VALUE)
+        );
 
         jMenu3.setText("Manage Records");
 
@@ -90,8 +99,6 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
             }
         });
         jMenu1.add(jMenuItem6);
-
-        jMenuItem7.setText("Add");
         jMenu1.add(jMenuItem7);
 
         jMenuItem8.setText("Update");
@@ -307,13 +314,11 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jdp1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jdp1)
         );
 
         pack();
@@ -386,7 +391,7 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         TblForm tblform = new TblForm();
         ResultSetTblModel tblModel= new ResultSetTblModel();
-       // jdpl.add(tblform);
+        jdp1.add(tblform);
         this.validate();
         this.repaint();
                 
@@ -394,7 +399,6 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu12;
@@ -439,5 +443,6 @@ public class MainMenuForm extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JDesktopPane jdp1;
     // End of variables declaration//GEN-END:variables
 }

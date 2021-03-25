@@ -132,7 +132,7 @@ public class LCMS_Server  implements Runnable {
                                                       
                            if(exist==true)
                            {
-                               Employee_LoginFrame front=new Employee_LoginFrame();
+                               LoginForm front=new LoginForm();
                                front.show();
                                
                                os.writeObject("Validation success");
